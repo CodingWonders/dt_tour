@@ -1,0 +1,364 @@
+body {
+    font-family: 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif';
+    font-size: 1em;
+}
+
+#skipTourLink {
+    position: absolute;
+    bottom: 12px;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#skipTourLink.show {
+    opacity: 1;
+}
+
+#skipTourLink:hover {
+    filter: drop-shadow(2px 2px 2px black);
+}
+
+#player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 48px);
+    z-index: 200;
+}
+
+#makewindowbigger_goddamnit {
+    display: none;
+}
+
+#main_tour_body {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "pictures sections"
+        "footer footer";
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 72px auto 72px;
+    height: 100vh;
+    background-color: #eee;
+    color: black !important;
+}
+
+#main_tour_body header {
+    grid-area: header;
+    background-color: white;
+}
+
+#logo_image {
+    left: 0;
+    top: 12px;
+    position: absolute;
+    width: 300px;
+    z-index: 100;
+}
+
+#navigation_buttons {
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin: 0;
+    transform: translateY(-100%);
+    transition: transform 1s ease-in-out;
+}
+
+#navigation_buttons.show {
+    transform: translateY(0);
+}
+
+#navigation_buttons img {
+    width: 256px;
+}
+
+#main_tour_body aside {
+    grid-area: pictures;
+    overflow-y: auto;
+    padding: 8px;
+    border-right: 1px solid #bbb;
+}
+
+#main_tour_body main {
+    grid-area: sections;
+    padding: 8px;
+    overflow: auto;
+}
+
+#main_tour_body footer {
+    grid-area: footer;
+    padding-top: 20px;
+    padding-bottom: 4px;
+    text-align: center;
+    background-color: white;
+}
+
+#main_tour_body_stages {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: 72px auto 72px;
+    height: 100vh;
+    background-color: #eee;
+    color: black !important;
+}
+
+#main_tour_body_stages header {
+    grid-area: header;
+    background-color: white;
+}
+
+#main_tour_body_stages main {
+    grid-area: main;
+    grid-template-areas:
+        "section_title"
+        "sections";
+    grid-template-rows: 192px auto;
+    overflow: auto;
+}
+
+.stage_title {
+    grid-area: section_title;
+    margin: 24px 48px 24px 48px;
+    font-size: 96px;
+    font-family: 'Segoe UI Variable Display Light', 'Segoe UI Variable Display', 'Segoe UI Light', 'Segoe UI';
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stage_contents {
+    grid-area: sections;
+    margin: 8px 48px 8px 48px;
+    padding: 8px;
+    overflow: auto;
+    font-size: 1.125em;
+}
+
+.stage_contents img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.stage_contents a {
+    text-decoration: none;
+    color: black;
+}
+
+.stage_contents a:hover {
+    text-decoration: underline;
+}
+
+#main_tour_body_stages footer {
+    grid-area: footer;
+    padding-top: 20px;
+    padding-bottom: 4px;
+    text-align: center;
+    background-color: white;
+}
+
+#image {
+    width: 100%;
+    transition: 1s ease-in-out;
+}
+
+.article_section {
+    display: grid;
+    grid-template-areas:
+        "section_number section_content";
+    grid-template-columns: 96px auto;
+    margin-bottom: 8px;
+    transition: 0.25s ease-in-out;
+}
+
+.article_section hgroup {
+    grid-area: section_number;
+    padding: 8px;
+    font-size: 64px;
+    font-family: 'Segoe UI Variable Display Light', 'Segoe UI Variable Display', 'Segoe UI Light', 'Segoe UI'
+}
+
+.article_section hgroup h1 {
+    margin: 0;
+    margin-top: -12px;
+    text-align: center;
+}
+
+.article_section article {
+    grid-area: section_content;
+    font-size: 1em;
+    padding-right: 12px;
+}
+
+.article_section_content_header {
+    font-size: 2em;
+    font-family: 'Segoe UI Variable Display Light', 'Segoe UI Variable Display', 'Segoe UI Light', 'Segoe UI';
+    margin-bottom: -4px;
+    margin-top: 16px;
+}
+
+.article_section p {
+    font-size: 1.125em;
+}
+
+.article_section:hover {
+    background-color: white;
+}
+
+.article_section div {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+}
+
+.article_section div > span a {
+    margin-right: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.article_section div > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125em;
+}
+
+.article_section div > span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+details {
+    padding: 0.5em 0.5em 0;
+    margin: 0.5em 0;
+}
+
+details[open] {
+    padding: 0.5em;
+    margin: 0.5em 0;
+}
+
+details[open] summary {
+    margin-bottom: 0.5em;
+}
+
+blockquote {
+    border-left: 2px solid lightgray;
+    padding-left: 16px;
+    margin-left: 32px;
+}
+
+abbr {
+    cursor: help;
+}
+
+code {
+    background-color: #ddd;
+    padding: 4px;
+    border-radius: 4px;
+    transition: 0.25s ease-in-out;
+}
+
+code:hover {
+    filter: drop-shadow(0px 0px 4px black);
+}
+
+.stage_contents div > span a {
+    margin-right: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.stage_contents div > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125em;
+}
+
+.stage_contents div > span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (min-width: 897px) and (max-width: 1096px) {
+    #navigation_buttons img {
+        width: 192px;
+    }    
+}
+
+@media (min-width: 801px) and (max-width: 896px) {
+    #navigation_buttons img {
+        width: 160px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+    #main_tour_body {
+        grid-template-columns: 256px auto;
+    }
+
+    @media (min-width: 701px) and (max-width: 800px) {
+        #navigation_buttons img {
+            width: 128px;
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 700px) {
+        #navigation_buttons img {
+            width: 96px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #main_tour_body {
+        grid-template-areas:
+            "header"
+            "sections"
+            "footer";
+        grid-template-columns: auto;
+    }
+
+    #main_tour_body aside {
+        display: none;
+    }
+
+    #navigation_buttons {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) or (max-height: 400px) {
+    #main_tour_body {
+        display: none;
+    }
+
+    #main_tour_body_stages {
+        display: none;
+    }
+
+    #makewindowbigger_goddamnit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+}

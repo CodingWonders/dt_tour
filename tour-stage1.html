@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Go to the main page" src="resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1.html"><img src="resources/section_button_images/getting_started_hovered.png" alt="Getting Started" draggable="false" oncontextmenu="return false;"></a>
+                    <a href="tour-stage2.html"><img src="resources/section_button_images/managing_servicing_normal.png" alt="Managing and servicing Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='resources/section_button_images/managing_servicing_normal.png';"></a>
+                    <a href="tour-stage3.html"><img src="resources/section_button_images/testing_deploying_normal.png" alt="Testing and deploying Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='resources/section_button_images/testing_deploying_normal.png';"></a>
+                </div>
+            </header>
+            <main>
+                <a name="top"></a>
+                <div class="stage_title">
+                    Getting Started
+                </div>
+                <div class="stage_contents">
+                    <p>Whether you are new to image servicing, or come from other programs, this guide will help you learn the Windows deployment tools and set up your deployment workbench.</p>
+                    <h1>Understanding the Windows deployment and setup tools</h1>
+                    <p>To begin, we will have to go back to the Windows Vista days, in order to understand its setup and deployment tools. Don't worry, this is not a long section.<br><br>Before this operating system, the installation <abbr title="Compact disc">CD</abbr> contained all the files of the Windows installation in a compressed manner, but did not contain an entire Windows installation in one file. For example, each file from 3D Pinball was compressed into their own files. This meant that you needed the CD at all times during the Setup process, until the very end. If you ejected it during installation, it would tell you to insert it again:</p>
+                    <img src="https://medo64.com/posts/installing-windows-xp-media-center/MicrosoftWindowsXPMediaCenterEditionDisk2.webp" />
+                    <p>Constant transfers from the CD to the computer's <abbr title="Hard disk drive">HDD</abbr> also meant that installation would take a while.<br><br>Given these drawbacks, Microsoft started work on a new setup system during the development of Windows Vista (codenamed Longhorn) that would install Windows in less than 15 minutes:</p>
+                    <blockquote>
+                        Myers says the goal is for an unattended setup of Longhorn to take less than 15 minutes from start to finish. Compared to the 45- to 60-minute install time for Windows XP, that's amazing, though Longhorn pre-alphas are still quite slow.
+                    </blockquote>
+                    <p>— Paul Thurrott, <cite>&quot;Longhorn Setup and Deployment Strategies&quot;</cite><br></p>
+                    <p>This resulted in the <abbr title="Windows Imaging">WIM</abbr> file format, which is a single file containing one or more complete installations of Windows. This means that the computer only needs to perform transfers from installation media to the HDD once: during image expansion.</p>
+                    <p>Obviously, because you're working with new deployment formats and standards, existing technology will not work, so Microsoft included a couple of deployment, management, and servicing tools as part of the Windows Vista <abbr title="Automated Installation Kit">AIK</abbr>.</p>
+                    <p>During the development of Windows 7, Microsoft listened to customer feedback and streamlined all these tools into one application that would also be integrated with the operating system. Called <abbr title="Deployment Image Servicing and Management">DISM</abbr>, this program is able to perform every feature found in the previous Windows Vista programs, and a lot more, thanks to improvements done in later versions of Windows.</p>
+                    <p>DISM is a command-line utility with a syntax that may look difficult to you. However, there are a couple of user interfaces available at your disposal, this being one of them.</p>
+                    <div>
+                        <span><i class="mdl2 mdl2-up" aria-hidden="true"></i><a href="#top"> Back to top</a></span>
+                    </div>
+                    <h1>What DISMTools offers to you</h1>
+                    <p>As a user interface for DISM, DISMTools offers some interesting features:</p>
+                    <ul>
+                        <li>It is the first project-based UI, allowing for easier organization of your work</li>
+                        <li>It provides rich information at speed, and offers tools that help you with your management tasks. More on that can be found on Stage 2 of this tour</li>
+                        <li>It offers built-in tools for image deployment and testing. More on that can be found on Stage 3 of this tour</li>
+                    </ul>
+                    <p>In this Stage, you will learn the basic tasks.</p>
+                    <h2>Creating your first project</h2>
+                    <p>To create your first project, simply click the &quot;New project...&quot; link on the home screen, or go to File &gt; New project...<br><br>The following dialog will be shown:</p>
+                    <img src="resources/section_images/getting_started/create_new_project.png" />
+                    <p>Type the name and location of your project. You can go wild with the name. Afterwards, click OK.<br><br>After the project is created, you will be greeted by the project view:</p>
+                    <img src="resources/section_images/getting_started/project_view.png" />
+                    <p>Before you get to do anything with your newly created project, you need to <u>mount a Windows image</u>. To do this, click the <i>Mount image...</i> button. You will see the following dialog:</p>
+                    <img src="resources/section_images/getting_started/mount_image.png" />
+                    <p>Specify a Windows image, the location to mount it to, and the index. You can configure additional options, but they are not required in most cases.</p>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">You can learn more about this task in the Help documentation</a></span>
+                    </div>
+                    <h3>How do I get a Windows image?</h3>
+                    <p>Windows images are usually found in the <code>install.wim</code> file, which is located in the <code>sources</code> folder of your Windows installation media. You can also find them in the <code>install.esd</code> file, which is a compressed version of the WIM file. This file is usually found in the same location as the WIM file.</p>
+                    <img src="resources/section_images/getting_started/install_image_path.png" />
+                    <p>After you copy it, specify it in the dialog, like this:</p>
+                    <img src="resources/section_images/getting_started/open_wim.png" />
+                    <p>Configure the remaining settings that were previously mentioned, and click OK.</p>
+                    <blockquote>Quote Test</blockquote>
+                    <details>
+                        <summary>Details Test</summary>
+                        Details Content Test
+                    </details>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex explicabo doloremque quod doloribus? Inventore sunt sapiente quaerat dignissimos doloribus temporibus eveniet odit in vero. Ad animi nesciunt itaque nulla. Aspernatur.<br><br>
+                        Eum cumque aut, culpa assumenda pariatur, laboriosam blanditiis, adipisci harum aspernatur nesciunt velit! Minus quae enim modi error voluptas! Similique qui quis corporis molestias id assumenda veritatis inventore dolorum maxime?<br><br>
+                        Culpa, maiores sequi molestias sed quia tenetur, eum minus atque ea nulla quae. Asperiores minima perspiciatis enim facilis delectus quibusdam, alias est, quo quis ratione ullam maiores aliquam similique soluta?<br><br>
+                        Asperiores aspernatur, illum eveniet corrupti fuga quidem ex nemo consequatur. Excepturi dolor voluptates possimus quibusdam voluptas fuga consequuntur. At magni eos dolorum omnis culpa. Eveniet deleniti praesentium molestiae nostrum consequuntur.<br><br>
+                        Qui tempore error facilis, ratione temporibus deleniti, quam ea quibusdam nam fugit ipsa nihil reprehenderit totam veniam esse quis. Voluptate reiciendis, quasi nesciunt deserunt perspiciatis quisquam aliquam accusantium fuga adipisci!<br><br>
+                    </p>
+                </div>
+            </main>
+            <footer>
+                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Please make the window bigger to view the tour.
+        </div>
+        <script>
+            var helpLinks = document.getElementsByClassName("learn_more_in_help");
+            if (helpLinks.length > 0) {
+                for (let i = 0; i < helpLinks.length; i++) {
+                    helpLinks[i].addEventListener("click", function() {
+                        alert("To learn more about this task, go to \"Help -> Help Topics\", or press F1");
+                    });
+                }
+            }
+            document.getElementById("navigation_buttons").classList.add("show");
+        </script>
+    </body>
+</html>
