@@ -47,13 +47,13 @@ body {
     grid-template-columns: 40% 60%;
     grid-template-rows: 72px auto 72px;
     height: 100vh;
-    background-color: #1e1e1e;
+    background-color: #121212;
     color: white !important;
 }
 
 #main_tour_body header {
     grid-area: header;
-    background-color: #2c2c2c;
+    background-color: #1f1f1f;
 }
 
 #logo_image {
@@ -99,7 +99,7 @@ body {
     padding-top: 20px;
     padding-bottom: 4px;
     text-align: center;
-    background-color: #2c2c2c;
+    background-color: #1f1f1f;
 }
 
 #main_tour_body_stages {
@@ -110,13 +110,13 @@ body {
         "footer";
     grid-template-rows: 72px auto 72px;
     height: 100vh;
-    background-color: #1e1e1e;
+    background-color: #121212;
     color: white !important;
 }
 
 #main_tour_body_stages header {
     grid-area: header;
-    background-color: #2c2c2c;
+    background-color: #1f1f1f;
 }
 
 #main_tour_body_stages main {
@@ -133,7 +133,6 @@ body {
     margin: 24px 48px 24px 48px;
     font-size: 96px;
     font-family: 'Segoe UI Variable Display Light', 'Segoe UI Variable Display', 'Segoe UI Light', 'Segoe UI';
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -167,7 +166,7 @@ body {
     padding-top: 20px;
     padding-bottom: 4px;
     text-align: center;
-    background-color: #2c2c2c;
+    background-color: #1f1f1f;
 }
 
 #image {
@@ -182,7 +181,7 @@ body {
     grid-template-columns: 96px auto;
     margin-bottom: 8px;
     transition: 0.25s ease-in-out;
-    background-color: #1e1e1e;
+    background-color: #121212;
 }
 
 .article_section hgroup {
@@ -220,7 +219,7 @@ body {
 }
 
 .article_section:hover {
-    background-color: #2c2c2c;
+    background-color: #1f1f1f;
 }
 
 .article_section div {
@@ -370,4 +369,48 @@ code:hover {
         text-align: center;
         color: #e0e0e0;
     }
+}
+
+footer a {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
+.important_block {
+    background-color: #143a10;
+    color: #ccf0c8;
+}
+
+div.important_block {
+    border-radius: 8px;
+    margin: 24px;
+}
+
+.important_block p {
+    padding-top: 2px;
+    padding-bottom: 12px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 4px;
+}
+
+.important_block p.ibh {
+    font-weight: bold;
+    padding-top: 12px;
+    padding-bottom: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 2px;
+}
+
+.important_block code {
+    background-color: #246b1c;
+}
+
+.important_block img {
+    max-width: 90%;
+}
+
+a.nounderline:hover {
+    text-decoration: none;
 }

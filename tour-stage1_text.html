@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="mdl2/css/mdl2-icons.min.css">
         <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
+        <script src="./scripts/diagnostics.js"></script>
     </head>
     <body style="margin: 0; overflow: hidden;">
         <div id="main_tour_body_stages">
@@ -17,9 +18,9 @@
                     <img id="logo_image" title="Go to the main page" src="resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
                 </picture>
                 <div id="navigation_buttons">
-                    <a href="tour-stage1.html"><img src="resources/section_button_images/getting_started_hovered.png" alt="Getting Started" draggable="false" oncontextmenu="return false;"></a>
-                    <a href="tour-stage2.html"><img src="resources/section_button_images/managing_servicing_normal.png" alt="Managing and servicing Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='resources/section_button_images/managing_servicing_normal.png';"></a>
-                    <a href="tour-stage3.html"><img src="resources/section_button_images/testing_deploying_normal.png" alt="Testing and deploying Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='resources/section_button_images/testing_deploying_normal.png';"></a>
+                    <a href="tour-stage1_text.html"><img src="resources/section_button_images/getting_started_hovered.png" alt="Getting Started" draggable="false" oncontextmenu="return false;"></a>
+                    <a href="tour-stage2_text.html"><img src="resources/section_button_images/managing_servicing_normal.png" alt="Managing and servicing Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='resources/section_button_images/managing_servicing_normal.png';"></a>
+                    <a href="tour-stage3_text.html"><img src="resources/section_button_images/testing_deploying_normal.png" alt="Testing and deploying Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='resources/section_button_images/testing_deploying_normal.png';"></a>
                 </div>
             </header>
             <main>
@@ -52,7 +53,7 @@
                         <li>It offers built-in tools for image deployment and testing. More on that can be found on Stage 3 of this tour</li>
                     </ul>
                     <p>In this Stage, you will learn the basic tasks.</p>
-                    <h2>Creating your first project</h2>
+                    <h1><a name="startwithdt" class="nounderline">Creating your first project and mounting your first Windows image</a></h1>
                     <p>To create your first project, simply click the &quot;New project...&quot; link on the home screen, or go to File &gt; New project...<br><br>The following dialog will be shown:</p>
                     <img src="resources/section_images/getting_started/create_new_project.png" />
                     <p>Type the name and location of your project. You can go wild with the name. Afterwards, click OK.<br><br>After the project is created, you will be greeted by the project view:</p>
@@ -68,23 +69,42 @@
                     <img src="resources/section_images/getting_started/install_image_path.png" />
                     <p>After you copy it, specify it in the dialog, like this:</p>
                     <img src="resources/section_images/getting_started/open_wim.png" />
-                    <p>Configure the remaining settings that were previously mentioned, and click OK.</p>
-                    <blockquote>Quote Test</blockquote>
-                    <details>
-                        <summary>Details Test</summary>
-                        Details Content Test
-                    </details>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex explicabo doloremque quod doloribus? Inventore sunt sapiente quaerat dignissimos doloribus temporibus eveniet odit in vero. Ad animi nesciunt itaque nulla. Aspernatur.<br><br>
-                        Eum cumque aut, culpa assumenda pariatur, laboriosam blanditiis, adipisci harum aspernatur nesciunt velit! Minus quae enim modi error voluptas! Similique qui quis corporis molestias id assumenda veritatis inventore dolorum maxime?<br><br>
-                        Culpa, maiores sequi molestias sed quia tenetur, eum minus atque ea nulla quae. Asperiores minima perspiciatis enim facilis delectus quibusdam, alias est, quo quis ratione ullam maiores aliquam similique soluta?<br><br>
-                        Asperiores aspernatur, illum eveniet corrupti fuga quidem ex nemo consequatur. Excepturi dolor voluptates possimus quibusdam voluptas fuga consequuntur. At magni eos dolorum omnis culpa. Eveniet deleniti praesentium molestiae nostrum consequuntur.<br><br>
-                        Qui tempore error facilis, ratione temporibus deleniti, quam ea quibusdam nam fugit ipsa nihil reprehenderit totam veniam esse quis. Voluptate reiciendis, quasi nesciunt deserunt perspiciatis quisquam aliquam accusantium fuga adipisci!<br><br>
-                    </p>
+                    <p>Configure the remaining settings that were previously mentioned, and click OK. Then wait for the operation to complete.</p>
+                    <p>Throughout the usage of DISMTools, you will see this progress panel. In here, you can look at operation logs and the DISM command-line output. Click one of the links below to see both sections:</p>
+                    <table border="0" cellpadding="4" align="center">
+                        <tr>
+                            <td>
+                                <div>
+                                    <span><i class="mdl2 mdl2-forward" aria-hidden="true"></i><a id="operation_logs" href="#">Operation logs </a></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span><i class="mdl2 mdl2-forward" aria-hidden="true"></i><a id="dism_output" href="#">DISM output</a></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <img id="progressPanel" src="./resources/section_images/getting_started/progressPanel_OperationLogs.png" />
+                            </td>
+                        </tr>
+                    </table>
+                    <p>You can switch to either section by clicking the buttons on the bottom left.</p>
+                    <p>After the mount operation is done, you will return to the project view, but with more stuff to explore:</p>
+                    <img src="resources/section_images/getting_started/project_view_mounted_image.png" />
+                    <h1>I've done it. Now what?</h1>
+                    <p>After mounting your image, you can continue in 2 ways:</p>
+                    <ul>
+                        <li>On your own, or</li>
+                        <li>With help from the remaining Stages of this tour</li>
+                    </ul>
+                    <p>If you want to continue with the tour, click the Stage 2 button on the top right to go to its text version.</p>
+                    <p>If you want to continue with the tour using the video format, click <a href="#">here</a>.</p>
                 </div>
             </main>
             <footer>
-                
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Report an issue</a>                
             </footer>
         </div>
         <div id="makewindowbigger_goddamnit">
@@ -100,6 +120,18 @@
                 }
             }
             document.getElementById("navigation_buttons").classList.add("show");
+
+            var progressPanelImage = document.getElementById("progressPanel");
+            var switcherlink1 = document.getElementById("operation_logs");
+            var switcherlink2 = document.getElementById("dism_output");
+
+            switcherlink1.addEventListener("click", function() {
+                progressPanelImage.src = "resources/section_images/getting_started/progressPanel_OperationLogs.png";
+            })
+
+            switcherlink2.addEventListener("click", function() {
+                progressPanelImage.src = "resources/section_images/getting_started/progressPanel_DismOutput.png";
+            })
         </script>
     </body>
 </html>

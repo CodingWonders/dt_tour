@@ -45,13 +45,13 @@ body {
     grid-template-columns: 40% 60%;
     grid-template-rows: 72px auto 72px;
     height: 100vh;
-    background-color: #eee;
+    background-color: #fcfbff;
     color: black !important;
 }
 
 #main_tour_body header {
     grid-area: header;
-    background-color: white;
+    background-color: #eeeef2;
 }
 
 #logo_image {
@@ -97,7 +97,7 @@ body {
     padding-top: 20px;
     padding-bottom: 4px;
     text-align: center;
-    background-color: white;
+    background-color: #eeeef2;
 }
 
 #main_tour_body_stages {
@@ -108,13 +108,13 @@ body {
         "footer";
     grid-template-rows: 72px auto 72px;
     height: 100vh;
-    background-color: #eee;
+    background-color: #fcfbff;
     color: black !important;
 }
 
 #main_tour_body_stages header {
     grid-area: header;
-    background-color: white;
+    background-color: #eeeef2;
 }
 
 #main_tour_body_stages main {
@@ -131,7 +131,6 @@ body {
     margin: 24px 48px 24px 48px;
     font-size: 96px;
     font-family: 'Segoe UI Variable Display Light', 'Segoe UI Variable Display', 'Segoe UI Light', 'Segoe UI';
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -165,7 +164,7 @@ body {
     padding-top: 20px;
     padding-bottom: 4px;
     text-align: center;
-    background-color: white;
+    background-color: #eeeef2;
 }
 
 #image {
@@ -213,7 +212,7 @@ body {
 }
 
 .article_section:hover {
-    background-color: white;
+    background-color: #eeeef2;
 }
 
 .article_section div {
@@ -361,4 +360,48 @@ code:hover {
         height: 100vh;
         text-align: center;
     }
+}
+
+footer a {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
+.important_block {
+    background-color: #a3d3a0;
+    color: #0e1c0d;
+}
+
+div.important_block {
+    border-radius: 8px;
+    margin: 24px;
+}
+
+.important_block p {
+    padding-top: 2px;
+    padding-bottom: 12px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 4px;
+}
+
+.important_block p.ibh {
+    font-weight: bold;
+    padding-top: 12px;
+    padding-bottom: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 2px;
+}
+
+.important_block code {
+    background-color: #5fbf87;
+}
+
+.important_block img {
+    max-width: 90%;
+}
+
+a.nounderline:hover {
+    text-decoration: none;
 }

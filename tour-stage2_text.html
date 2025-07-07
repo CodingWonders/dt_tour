@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
+        <script src="./scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Go to the main page" src="resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1_text.html"><img src="resources/section_button_images/getting_started_normal.png" alt="Getting Started" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/getting_started_hovered.png';" onmouseout="this.src='resources/section_button_images/getting_started_normal.png';"></a>
+                    <a href="tour-stage2_text.html"><img src="resources/section_button_images/managing_servicing_hovered.png" alt="Managing and servicing Windows images" draggable="false" oncontextmenu="return false;"></a>
+                    <a href="tour-stage3_text.html"><img src="resources/section_button_images/testing_deploying_normal.png" alt="Testing and deploying Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='resources/section_button_images/testing_deploying_normal.png';"></a>
+                </div>
+            </header>
+            <main>
+                <a name="top"></a>
+                <div class="stage_title">
+                    Managing and servicing Windows images
+                </div>
+                <div class="stage_contents">
+                    <p>Let's make your Windows image <b>yours.</b></p>
+                    <h1>Getting to know our mounted image</h1>
+                    <p>Before proceeding to modify our Windows image, we'll first grab some information from it, so that we know what we are working on. This can be done with the plethora of information dialogs available in this program. We'll get general information about our image, such as its name, and its size, by going here (switch to the <b>IMAGE</b> section on the left side first):</p>
+                    <img src="./resources/section_images/managing_servicing/view_image_properties_link.png" />
+                    <p>We'll see the following information:</p>
+                    <img src="./resources/section_images/managing_servicing/image_properties.png" />
+                    <p>This information will be updated after committing our image, but we'll start making changes first.</p>
+                    <h1>Modifying the Windows image to our liking</h1>
+                    <p>We'll perform a series of modifications to our Windows image. Let's imagine this example: we are working on a Windows 11 Pro image that we'll then deploy to the computers in our organization. We want the following:</p>
+                    <ul>
+                        <li>Built-in support for a Windows Subsystem for Linux (WSL) image and for virtual machines with <a href="https://en.wikipedia.org/wiki/Hyper-V">Hyper-V</a></li>
+                        <li>Reduced amount of bloatware, but enough to avoid breaking the target system</li>
+                    </ul>
+                    <p>The image we're starting with is quite outdated, so we'll update it as well. This tour will separate each task into its own section, so you can follow this process more easily.</p>
+                    <h2>Enabling the features</h2>
+                    <p>Both Hyper-V and the Windows Subsystem for Linux are features that can be enabled in a Windows image. To see the state they are in, we'll click the &quot;Get feature information...&quot; button. We'll see a list of all features in the image. To narrow down the search results, we simply type our query into the search box, like this:</p>
+                    <img src="./resources/section_images/managing_servicing/feature_info.png" />
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">You can learn more about this task in the Help documentation</a></span>
+                    </div>                    
+                    <p>In this example, both are disabled, so let's enable them. We can do this by clicking the &quot;Enable feature...&quot; button. Afterwards, we select the features to enable, plus any options, and we click OK. In this example, we'll continue with the following options:</p>
+                    <img src="./resources/section_images/managing_servicing/enable_feature.png" />
+                    <p>Here is a quick summary of the options that were selected:</p>
+                    <ul>
+                        <li><b>Enable all parent features</b> helps us save time by enabling all features related to the ones we selected. For instance, it's quicker to select <code>Microsoft-Hyper-V-All</code> and enable this option than selecting all Hyper-V features one by one. Doing the former will automatically enable all of them in one go</li>
+                        <li><b>Commit image after enabling features</b> will automatically save the changes to our image for us after enabling the features. It's a good option to commit changes after every image task, because it will be easier to revert to an older version if a change doesn't work out</li>
+                    </ul>
+                    <div class="important_block">
+                        <p class="ibh">Note:</p>
+                        <p>A feature may appear in this list as being <code>Removed</code>. In that case, you need to provide a source. The source, in many cases, is the <code>sxs</code> folder in Windows installation media. Mount the ISO file and specify the <code>sources\sxs</code> folder in the folder browser dialog. Do this process like this:</p>
+                        <img src="./resources/section_images/managing_servicing/enable_feature_custom_source.png" />
+                        <p>In our example, it's not necessary, but it may be when you do it by yourself.</p>
+                        <p>In order for this to work, both your Windows image and the installation media must have the same version. That's why it's recommended to do this first. Otherwise, you'll have to wait until you install your Windows image to enable a feature by using Windows Update, or use updated media.</p>
+                    </div>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">You can learn more about this task in the Help documentation</a></span>
+                    </div>
+                    <p>After the task is done, you can go back to the feature information dialog and check the status of the features you had selected. We will now continue with updating the Windows image.</p>
+                    <h2>Adding the packages</h2>
+                    <p>Now, let's update our image with the latest update packages. You can download these from the <a href="https://catalog.update.microsoft.com">Microsoft Update Catalog</a>. After this is done, we'll click the &quot;Add package...&quot; button. Then, select the location your update files are in. Finally, select the ones you would like to install and click OK:</p>
+                    <img src="./resources/section_images/managing_servicing/add_package.png" />
+                    
+                    <p>In this example, we want to add all packages that were found. It's best to add packages in small batches, as the operation is quite lengthy, and we'll also commit the changes after each batch. Get your drinks and snacks ready, or do other things, while the task is being done.</p>
+                    <div class="important_block">
+                        <p class="ibh">Note:</p>
+                        <p>DISMTools supports the addition of both CAB files and MSU files. For more advanced users, it also supports adding independent update manifests.</p>
+                    </div>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">You can learn more about this task in the Help documentation</a></span>
+                    </div>
+                    <p>You can later go to the package information dialog to look at the recently installed packages. <a class="learn_more_in_help" href="#">You can learn more about this task in the Help documentation</a>.</p>
+                    <h2>Removing Store applications</h2>
+                    <p>One of the many forms of bloat in Windows consists of Store applications that you may not want. While you can remove these after installing the system, you can also install the OS with those applications already removed. To do this, we'll click the &quot;Remove AppX package&quot; button. In this dialog, we select the applications to remove and we'll click OK:</p>
+                    <img src="./resources/section_images/managing_servicing/remove_apps.png" />
+                    <div class="important_block">
+                        <p class="ibh">Note:</p>
+                        <p>Be sure to know what you will remove. More system components in Windows rely on some of these applications these days, and you may break them if you're not careful. You can look up the names of the applications, which you can find in the second column, online to determine if you want to remove them.</p>
+                    </div>
+                    <p>You can perform more tasks if you want, but we'll continue with the final step: operating system deployment.</p>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">You can learn more about the tasks you perform in the Help documentation</a></span>
+                    </div>
+                    <h1>I've done it. Now what?</h1>
+                    <p>After customizing your image, you can continue in 2 ways:</p>
+                    <ul>
+                        <li>On your own, or</li>
+                        <li>With help from the remaining Stage of this tour</li>
+                    </ul>
+                    <p>If you want to continue with the tour, click the Stage 3 button on the top right to go to its text version.</p>
+                    <p>If you want to continue with the tour using the video format, click <a href="#">here</a>.</p>
+                    <br>
+                    <p>If you got lost in some steps, you can go back to <a href="./tour-stage1_text.html#startwithdt">Stage 1</a>. Then, proceed to Stage 3.</p>
+                </div>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Report an issue</a>                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Please make the window bigger to view the tour.
+        </div>
+        <script>
+            var helpLinks = document.getElementsByClassName("learn_more_in_help");
+            if (helpLinks.length > 0) {
+                for (let i = 0; i < helpLinks.length; i++) {
+                    helpLinks[i].addEventListener("click", function() {
+                        alert("To learn more about this task, go to \"Help -> Help Topics\", or press F1");
+                    });
+                }
+            }
+            document.getElementById("navigation_buttons").classList.add("show");
+        </script>
+    </body>
+</html>
