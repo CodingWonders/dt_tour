@@ -32,7 +32,7 @@
                         <h2 class="article_section_content_header">Getting Started</h2>
                         <p>Get to know the deployment and servicing tools in Microsoft Windows, and learn how to perform the basics with DISMTools.</p>
                         <div>
-                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="#" class="unavailable_content">Watch video</a></span>
+                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="tour-stage1_video.html">Watch video</a></span>
                             <span><i class="mdl2 mdl2-align-left" aria-hidden="true"></i><a href="tour-stage1_text.html">Read text version</a></span>
                         </div>
                     </article>
@@ -45,7 +45,7 @@
                         <h2 class="article_section_content_header">Managing and servicing Windows images</h2>
                         <p>Learn the management and servicing tasks you can perform with <abbr title="Deployment Imaging Servicing and Management tool">DISM</abbr> and how DISMTools can help you in each step.</p>
                         <div>
-                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="#" class="unavailable_content">Watch video</a></span>
+                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="tour-stage2_video.html">Watch video</a></span>
                             <span><i class="mdl2 mdl2-align-left" aria-hidden="true"></i><a href="tour-stage2_text.html">Read text version</a></span>
                         </div>
                     </article>
@@ -58,7 +58,7 @@
                         <h2 class="article_section_content_header">Testing and deploying Windows images</h2>
                         <p>Take advantage of the functionality in DISMTools to create customized disc image files for testing and deployment to a computer, or on your network via the Windows Deployment Services.</p>
                         <div>
-                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="#" class="unavailable_content">Watch video</a></span>
+                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="tour-stage3_video.html">Watch video</a></span>
                             <span><i class="mdl2 mdl2-align-left" aria-hidden="true"></i><a href="tour-stage3_text.html">Read text version</a></span>
                         </div>
                     </article>
@@ -73,7 +73,6 @@
         </div>
         <script>
             var menuItems = document.getElementsByClassName("article_section");
-            var unavailableLinks = document.getElementsByClassName("unavailable_content");
             var image = document.getElementById("image");
             var images = [
                 "resources/main_page_images/stage1.png",
@@ -93,12 +92,6 @@
                 });
                 menuItems[i].addEventListener("mouseout", function() {
                     this.querySelector('div').style.display = 'none';
-                });
-            }
-
-            for (var i = 0; i < unavailableLinks.length; i++) {
-                unavailableLinks[i].addEventListener("click", function() {
-                    alert("This content is not yet available on this release.");
                 });
             }
         </script>
