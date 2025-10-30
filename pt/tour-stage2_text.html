@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Ir para a página principal" src="../resources/logo.png" alt="Logotipo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1_text.html"><img src="./resources/section_button_images/getting_started_normal.png" alt="Introdução" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/getting_started_hovered.png';" onmouseout="this.src='./resources/section_button_images/getting_started_normal.png';"></a>
+                    <a href="tour-stage2_text.html"><img src="./resources/section_button_images/managing_servicing_hovered.png" alt="Gerir e manter imagens do Windows" draggable="false" oncontextmenu="return false;"></a>
+                    <a href="tour-stage3_text.html"><img src="./resources/section_button_images/testing_deploying_normal.png" alt="Testar e implantar imagens do Windows" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='./resources/section_button_images/testing_deploying_normal.png';"></a>
+                </div>
+            </header>
+            <main>
+                <a name="top"></a>
+                <div class="stage_title">
+                    Gestão e manutenção de imagens do Windows
+                </div>
+                <div class="stage_contents">
+                    <p>Vamos tornar a sua imagem do Windows <b>sua.</b></p>
+                    <h1>Conhecendo a nossa imagem montada</h1>
+                    <p>Antes de proceder à modificação da nossa imagem do Windows, primeiro vamos recolher algumas informações sobre ela, para sabermos com o que estamos a trabalhar. Isto pode ser feito com os vários diálogos de informação disponíveis neste programa. Obteremos informações gerais sobre a nossa imagem, como o seu nome e tamanho, indo aqui (mude primeiro para a seção <b>IMAGE</b> no lado esquerdo):</p>
+                    <img src="../resources/section_images/managing_servicing/view_image_properties_link.png" />
+                    <p>Veremos a seguinte informação:</p>
+                    <img src="../resources/section_images/managing_servicing/image_properties.png" />
+                    <p>Esta informação será atualizada depois de confirmar (commit) a imagem, mas começaremos por fazer alterações primeiro.</p>
+                    <h1>Modificando a imagem do Windows ao nosso gosto</h1>
+                    <p>Executaremos uma série de modificações na nossa imagem do Windows. Imagine este exemplo: estamos a trabalhar numa imagem do Windows 11 Pro que depois iremos implantar nos computadores da nossa organização. Pretendemos o seguinte:</p>
+                    <ul>
+                        <li>Suporte incorporado para uma imagem do Windows Subsystem for Linux (WSL) e para máquinas virtuais com <a href="https://en.wikipedia.org/wiki/Hyper-V">Hyper-V</a></li>
+                        <li>Redução de bloatware, mas na quantidade suficiente para não quebrar o sistema alvo</li>
+                    </ul>
+                    <p>A imagem com a qual começamos está bastante desatualizada, por isso também a iremos atualizar. Este tour separa cada tarefa numa secção própria, para que possa seguir o processo mais facilmente.</p>
+                    <h2>Ativando as funcionalidades</h2>
+                    <p>Tanto o Hyper-V como o Windows Subsystem for Linux são funcionalidades que podem ser ativadas numa imagem do Windows. Para ver o estado em que se encontram, clicaremos no botão &quot;Obter informações da funcionalidade...&quot;. Veremos uma lista de todas as funcionalidades na imagem. Para reduzir os resultados da pesquisa, basta digitar a consulta na caixa de pesquisa, assim:</p>
+                    <img src="../resources/section_images/managing_servicing/feature_info.png" />
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Pode saber mais sobre esta tarefa na documentação de Ajuda</a></span>
+                    </div>                    
+                    <p>Neste exemplo, ambas estão desativadas, por isso vamos ativá-las. Podemos fazer isto clicando no botão &quot;Ativar funcionalidade...&quot;. Depois, selecionamos as funcionalidades a ativar, mais quaisquer opções, e clicamos em OK. Neste exemplo, continuaremos com as seguintes opções:</p>
+                    <img src="../resources/section_images/managing_servicing/enable_feature.png" />
+                    <p>Aqui está um resumo rápido das opções selecionadas:</p>
+                    <ul>
+                        <li><b>Ativar todas as funcionalidades pai</b> ajuda-nos a poupar tempo ativando todas as funcionalidades relacionadas com as que selecionámos. Por exemplo, é mais rápido selecionar <code>Microsoft-Hyper-V-All</code> e ativar esta opção do que selecionar todas as funcionalidades do Hyper-V uma a uma. Ao fazer o primeiro, todas serão ativadas de uma só vez</li>
+                        <li><b>Confirmar (commit) a imagem após ativar funcionalidades</b> irá automaticamente gravar as alterações na nossa imagem após ativar as funcionalidades. É uma boa prática confirmar as alterações após cada tarefa na imagem, porque será mais fácil reverter para uma versão anterior se algo não correr bem</li>
+                    </ul>
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>Uma funcionalidade pode aparecer nesta lista como <code>Removed</code>. Nesse caso, é necessário fornecer uma origem. A origem, em muitos casos, é a pasta <code>sxs</code> do suporte de instalação do Windows. Monte o ficheiro ISO e especifique a pasta <code>sources\sxs</code> no diálogo de seleção de pastas. Faça este processo assim:</p>
+                        <img src="../resources/section_images/managing_servicing/enable_feature_custom_source.png" />
+                        <p>No nosso exemplo, não é necessário, mas poderá ser quando fizer o procedimento sozinho.</p>
+                        <p>Para que isto funcione, tanto a sua imagem do Windows como o suporte de instalação devem ter a mesma versão. Por isso é recomendado fazer isto primeiro. Caso contrário, terá de esperar até instalar a sua imagem do Windows para ativar uma funcionalidade usando o Windows Update, ou usar suporte atualizado.</p>
+                    </div>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Pode saber mais sobre esta tarefa na documentação de Ajuda</a></span>
+                    </div>
+                    <p>Depois da tarefa concluída, pode voltar ao diálogo de informações de funcionalidades e verificar o estado das funcionalidades que selecionou. Prosseguiremos agora com a atualização da imagem do Windows.</p>
+                    <h2>Adicionando os pacotes</h2>
+                    <p>Agora, vamos atualizar a nossa imagem com os pacotes de atualização mais recentes. Pode descarregar estes do <a href="https://catalog.update.microsoft.com">Microsoft Update Catalog</a>. Depois de isto feito, clicaremos no botão &quot;Adicionar pacote...&quot;. Em seguida, selecione a localização onde os ficheiros de atualização se encontram. Finalmente, selecione os que deseja instalar e clique OK:</p>
+                    <img src="../resources/section_images/managing_servicing/add_package.png" />
+                    
+                    <p>Neste exemplo, queremos adicionar todos os pacotes encontrados. É melhor adicionar pacotes em pequenos lotes, pois a operação é bastante demorada, e também iremos confirmar as alterações após cada lote. Prepare bebidas e snacks, ou faça outras coisas, enquanto a tarefa é executada.</p>
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>O DISMTools suporta a adição de ficheiros CAB e ficheiros MSU. Para utilizadores mais avançados, também suporta a adição de manifests independentes de atualizações.</p>
+                    </div>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Pode saber mais sobre esta tarefa na documentação de Ajuda</a></span>
+                    </div>
+                    <p>Pode mais tarde ir ao diálogo de informações de pacotes para ver os pacotes recentemente instalados. <a class="learn_more_in_help" href="#">Pode saber mais sobre esta tarefa na documentação de Ajuda</a>.</p>
+                    <h2>Removendo aplicações da Store</h2>
+                    <p>Uma das muitas formas de bloat no Windows são as aplicações da Loja que talvez não queira. Embora possa removê-las depois de instalar o sistema, também pode instalar o SO com essas aplicações já removidas. Para isso, clicaremos no botão &quot;Remover pacote AppX&quot;. Neste diálogo, selecionamos as aplicações a remover e clicamos em OK:</p>
+                    <img src="../resources/section_images/managing_servicing/remove_apps.png" />
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>Tenha a certeza do que vai remover. Componentes do sistema no Windows dependem de algumas destas aplicações atualmente, e poderá quebrá-los se não tiver cuidado. Pode procurar os nomes das aplicações, que encontra na segunda coluna, online para determinar se deseja removê-las.</p>
+                    </div>
+                    <p>Pode executar mais tarefas se desejar, mas iremos continuar com o passo final: implantação do sistema operativo.</p>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Pode saber mais sobre as tarefas na documentação de Ajuda</a></span>
+                    </div>
+                    <h1>Concluí. E agora?</h1>
+                    <p>Depois de personalizar a sua imagem, pode continuar de 2 maneiras:</p>
+                    <ul>
+                        <li>Por conta própria, ou</li>
+                        <li>Com ajuda da etapa restante deste tour</li>
+                    </ul>
+                    <p>Se quiser continuar com o tour, clique no botão Etapa 3 no canto superior direito para ver a sua versão em texto.</p>
+                    <p>Se preferir continuar o tour em formato de vídeo, clique <a href="tour-stage3_video.html">aqui</a>.</p>
+                    <br>
+                    <p>Se se perdeu nalguns passos, pode voltar para a <a href="./tour-stage1_text.html#startwithdt">Etapa 1</a>. Depois, prossiga para a Etapa 3.</p>
+                </div>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Reportar um problema</a>                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Aumente o tamanho da janela para ver o tour.
+        </div>
+        <script>
+            var helpLinks = document.getElementsByClassName("learn_more_in_help");
+            if (helpLinks.length > 0) {
+                for (let i = 0; i < helpLinks.length; i++) {
+                    helpLinks[i].addEventListener("click", function() {
+                        alert("Para saber mais sobre esta tarefa, vá a \"Ajuda -> Tópicos de Ajuda\" ou pressione F1");
+                    });
+                }
+            }
+            document.getElementById("navigation_buttons").classList.add("show");
+        </script>
+    </body>
+</html>

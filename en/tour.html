@@ -3,24 +3,24 @@
     <head>
         <meta charset="utf-8">
         <title>DISMTools Tour</title>
-        <link rel="stylesheet" href="styles/styles-common.css" media="(prefers-color-scheme: light)">
-        <link rel="stylesheet" href="styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
-        <link rel="stylesheet" href="mdl2/css/mdl2-icons.min.css">
-        <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
-        <script src="scripts/diagnostics.js"></script>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
     </head>
     <body style="margin: 0; overflow: hidden;">
         <div id="main_tour_body">
             <header>
                 <picture>
-                    <source srcset="resources/logo_dark.png" media="(prefers-color-scheme: dark)">
-                    <source srcset="resources/logo.png" media="(prefers-color-scheme: light)">
-                    <img id="logo_image" src="resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;">
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;">
                 </picture>
             </header>
             <aside>
                 <div id="image_container">
-                    <img id="image" src="resources/main_page_images/stage1.png" draggable="false" oncontextmenu="return false;">
+                    <img id="image" src="../resources/main_page_images/stage1.png" draggable="false" oncontextmenu="return false;">
                 </div>
             </aside>
             <main>
@@ -75,9 +75,9 @@
             var menuItems = document.getElementsByClassName("article_section");
             var image = document.getElementById("image");
             var images = [
-                "resources/main_page_images/stage1.png",
-                "resources/main_page_images/stage2.png",
-                "resources/main_page_images/stage3.png"
+                "../resources/main_page_images/stage1.png",
+                "../resources/main_page_images/stage2.png",
+                "../resources/main_page_images/stage3.png"
             ];
             var currentImageIndex = 0;
 

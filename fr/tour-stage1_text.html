@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Aller à la page principale" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1_text.html"><img src="./resources/section_button_images/getting_started_hovered.png" alt="Premiers pas" draggable="false" oncontextmenu="return false;"></a>
+                    <a href="tour-stage2_text.html"><img src="./resources/section_button_images/managing_servicing_normal.png" alt="Gérer et entretenir les images Windows" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='./resources/section_button_images/managing_servicing_normal.png';"></a>
+                    <a href="tour-stage3_text.html"><img src="./resources/section_button_images/testing_deploying_normal.png" alt="Tester et déployer les images Windows" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='./resources/section_button_images/testing_deploying_normal.png';"></a>
+                </div>
+            </header>
+            <main>
+                <a name="top"></a>
+                <div class="stage_title">
+                    Commencer
+                </div>
+                <div class="stage_contents">
+                    <p>Que vous découvriez le service d'images ou que vous veniez d'autres outils, ce guide vous aidera à apprendre les outils de déploiement Windows et à configurer votre espace de travail de déploiement.</p>
+                    <h1>Comprendre les outils de déploiement et d'installation de Windows</h1>
+                    <p>Pour commencer, il faut remonter à l'époque de Windows Vista afin de comprendre son système d'installation et de déploiement. Ne vous inquiétez pas, ce n'est pas une longue section.<br><br>Avant ce système d'exploitation, le CD d'installation contenait tous les fichiers de l'installation de Windows de manière compressée, mais ne contenait pas une installation complète de Windows dans un seul fichier. Par exemple, chaque fichier de 3D Pinball était compressé dans ses propres fichiers. Cela signifiait que vous aviez besoin du CD pendant tout le processus d'installation, jusqu'à la fin. Si vous le retiriez pendant l'installation, le système vous demanderait de le réinsérer :</p>
+                    <img src="https://medo64.com/posts/installing-windows-xp-media-center/MicrosoftWindowsXPMediaCenterEditionDisk2.webp" />
+                    <p>Les transferts constants depuis le CD vers le <abbr title="Disque dur">HDD</abbr> de l'ordinateur faisaient également que l'installation prenait du temps.<br><br>Face à ces inconvénients, Microsoft a commencé à travailler sur un nouveau système d'installation pendant le développement de Windows Vista (nom de code Longhorn) qui permettrait d'installer Windows en moins de 15 minutes :</p>
+                    <blockquote>
+                        Myers dit que l'objectif est qu'une installation automatisée de Longhorn prenne moins de 15 minutes du début à la fin. Comparé au temps d'installation de 45 à 60 minutes pour Windows XP, c'est incroyable, bien que les pré-alphas de Longhorn soient encore assez lents.
+                    </blockquote>
+                    <p>— Paul Thurrott, <cite>&quot;Longhorn Setup and Deployment Strategies&quot;</cite><br></p>
+                    <p>Cela a donné naissance au format de fichier <abbr title="Imagerie Windows">WIM</abbr>, qui est un seul fichier contenant une ou plusieurs installations complètes de Windows. Cela signifie que l'ordinateur n'a besoin d'effectuer des transferts depuis le média d'installation vers le disque dur qu'une seule fois : lors de l'expansion de l'image.</p>
+                    <p>Évidemment, comme vous travaillez avec de nouveaux formats et standards de déploiement, la technologie existante ne fonctionnera pas, donc Microsoft a inclus plusieurs outils de déploiement, de gestion et de maintenance dans le <abbr title="Kit d'installation automatisé">AIK</abbr> de Windows Vista.</p>
+                    <p>Pendant le développement de Windows 7, Microsoft a tenu compte des retours clients et a consolidé tous ces outils en une seule application intégrée au système d'exploitation. Appelé <abbr title="Service et gestion d'images de déploiement">DISM</abbr>, ce programme peut effectuer toutes les opérations trouvées dans les outils de Windows Vista, et bien plus, grâce aux améliorations apportées dans les versions ultérieures de Windows.</p>
+                    <p>DISM est un utilitaire en ligne de commande dont la syntaxe peut vous sembler difficile. Cependant, il existe plusieurs interfaces utilisateur à votre disposition, et celle-ci en fait partie.</p>
+                    <div>
+                        <span><i class="mdl2 mdl2-up" aria-hidden="true"></i><a href="#top"> Retour en haut</a></span>
+                    </div>
+                    <h1>Ce que DISMTools vous apporte</h1>
+                    <p>En tant qu'interface pour DISM, DISMTools offre des fonctionnalités intéressantes :</p>
+                    <ul>
+                        <li>C'est le premier UI basé sur des projets, permettant une organisation plus facile de votre travail</li>
+                        <li>Il fournit des informations riches et rapides, et offre des outils qui vous aident dans vos tâches de gestion. Plus de détails sont disponibles à l'Étape 2 de cette visite</li>
+                        <li>Il propose des outils intégrés pour le déploiement et les tests d'images. Plus d'informations sont disponibles à l'Étape 3 de cette visite</li>
+                    </ul>
+                    <p>Dans cette étape, vous apprendrez les tâches de base.</p>
+                    <h1><a name="startwithdt" class="nounderline">Créer votre premier projet et monter votre première image Windows</a></h1>
+                    <p>Pour créer votre premier projet, cliquez simplement sur le lien &quot;Nouveau projet...&quot; sur l'écran d'accueil, ou allez dans Fichier &gt; Nouveau projet...<br><br>La boîte de dialogue suivante s'affichera :</p>
+                    <img src="../resources/section_images/getting_started/create_new_project.png" />
+                    <p>Saisissez le nom et l'emplacement de votre projet. Vous pouvez faire preuve de créativité pour le nom. Ensuite, cliquez sur OK.<br><br>Une fois le projet créé, vous verrez la vue du projet :</p>
+                    <img src="../resources/section_images/getting_started/project_view.png" />
+                    <p>Avant de pouvoir faire quoi que ce soit avec votre projet fraîchement créé, vous devez <u>monter une image Windows</u>. Pour ce faire, cliquez sur le bouton <i>Monter l'image...</i>. Vous verrez la boîte de dialogue suivante :</p>
+                    <img src="../resources/section_images/getting_started/mount_image.png" />
+                    <p>Spécifiez une image Windows, l'emplacement où la monter, et l'index. Vous pouvez configurer des options supplémentaires, mais elles ne sont pas requises dans la plupart des cas.</p>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Vous pouvez en savoir plus sur cette tâche dans la documentation d'aide</a></span>
+                    </div>
+                    <h3>Comment obtenir une image Windows ?</h3>
+                    <p>Les images Windows se trouvent généralement dans le fichier <code>install.wim</code>, qui se situe dans le dossier <code>sources</code> de votre média d'installation Windows. Vous pouvez aussi les trouver dans le fichier <code>install.esd</code>, qui est une version compressée du fichier WIM. Ce fichier se trouve habituellement au même emplacement que le WIM.</p>
+                    <img src="../resources/section_images/getting_started/install_image_path.png" />
+                    <p>Après l'avoir copié, indiquez-le dans la boîte de dialogue, comme ceci :</p>
+                    <img src="../resources/section_images/getting_started/open_wim.png" />
+                    <p>Configurez les paramètres restants mentionnés précédemment, puis cliquez sur OK. Ensuite, attendez la fin de l'opération.</p>
+                    <p>Pendant l'utilisation de DISMTools, vous verrez ce panneau de progression. Vous pouvez y consulter les journaux d'opération et la sortie en ligne de commande de DISM. Cliquez sur un des liens ci-dessous pour voir ces deux sections :</p>
+                    <table border="0" cellpadding="4" align="center">
+                        <tr>
+                            <td>
+                                <div>
+                                    <span><i class="mdl2 mdl2-forward" aria-hidden="true"></i><a id="operation_logs" href="#">Journaux d'opération </a></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span><i class="mdl2 mdl2-forward" aria-hidden="true"></i><a id="dism_output" href="#">Sortie DISM</a></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <img id="progressPanel" src="../resources/section_images/getting_started/progressPanel_OperationLogs.png" />
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Vous pouvez basculer entre les sections en cliquant sur les boutons en bas à gauche.</p>
+                    <p>Après l'opération de montage, vous reviendrez à la vue du projet, mais avec plus d'éléments à explorer :</p>
+                    <img src="../resources/section_images/getting_started/project_view_mounted_image.png" />
+                    <h1>J'y suis arrivé. Et maintenant ?</h1>
+                    <p>Après avoir monté votre image, vous pouvez poursuivre de deux manières :</p>
+                    <ul>
+                        <li>De votre côté, ou</li>
+                        <li>Avec l'aide des étapes restantes de cette visite</li>
+                    </ul>
+                    <p>Si vous souhaitez continuer la visite, cliquez sur le bouton Étape 2 en haut à droite pour accéder à sa version texte.</p>
+                    <p>Si vous préférez la version vidéo de la visite, cliquez <a href="tour-stage2_video.html">ici</a>.</p>
+                </div>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Signaler un problème</a>                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Veuillez agrandir la fenêtre pour afficher la visite.
+        </div>
+        <script>
+            var helpLinks = document.getElementsByClassName("learn_more_in_help");
+            if (helpLinks.length > 0) {
+                for (let i = 0; i < helpLinks.length; i++) {
+                    helpLinks[i].addEventListener("click", function() {
+                        alert("Pour en savoir plus sur cette tâche, allez dans \"Aide -> Sujets d'aide\", ou appuyez sur F1");
+                    });
+                }
+            }
+            document.getElementById("navigation_buttons").classList.add("show");
+
+            var progressPanelImage = document.getElementById("progressPanel");
+            var switcherlink1 = document.getElementById("operation_logs");
+            var switcherlink2 = document.getElementById("dism_output");
+
+            switcherlink1.addEventListener("click", function() {
+                progressPanelImage.src = "../resources/section_images/getting_started/progressPanel_OperationLogs.png";
+            })
+
+            switcherlink2.addEventListener("click", function() {
+                progressPanelImage.src = "../resources/section_images/getting_started/progressPanel_DismOutput.png";
+            })
+        </script>
+    </body>
+</html>

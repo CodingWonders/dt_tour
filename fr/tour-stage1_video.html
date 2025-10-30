@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Go to the main page" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1_video.html"><img src="./resources/section_button_images/getting_started_hovered.png" alt="Getting Started" draggable="false" oncontextmenu="return false;"></a>
+                    <a href="tour-stage2_video.html"><img src="./resources/section_button_images/managing_servicing_normal.png" alt="Managing and servicing Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='./resources/section_button_images/managing_servicing_normal.png';"></a>
+                    <a href="tour-stage3_video.html"><img src="./resources/section_button_images/testing_deploying_normal.png" alt="Testing and deploying Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='./resources/section_button_images/testing_deploying_normal.png';"></a>
+                </div>
+            </header>
+            <main>
+                <div id="player"></div>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Report an issue</a>                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Please make the window bigger to view the tour.
+        </div>
+        <script>
+            const nextStage = 2;
+
+            var tag = document.createElement('script');
+            tag.src = 'https://www.youtube.com/iframe_api';
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            var player;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('player', {
+                    height: 'calc(100% - 48px)',
+                    width: '100%',
+                    videoId: 'HRva9Gl6SPE',
+                    playerVars: {
+                        autoplay: 1,
+                        controls: 1
+                    },
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': function(event) {
+                            if (event.data === YT.PlayerState.ENDED) {
+                                /*
+                                    At this point, the yt player will throw nonsense BS at the user as if a video were to end on YouTube.
+                                    We better tell the user to continue manually. We'll not continue automatically, because we don't know what the
+                                    user will do (whether that's replaying the video or leaving the tour to continue on their own).
+
+                                    This can be improved in the future by putting controls at the bottom, or by getting rid of the video player
+                                    and presenting a finished screen. Whatever suits best.
+
+                                    Anyway, I'm sorry, but I'm not letting you watch kids' toys videos on a high-quality webpage that is the
+                                    DISMTools Tour.
+                                */
+                                alert(`To continue with the tour, click the Stage ${nextStage} button on the top right corner of your screen.`);
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Adjust vertical position of the player
+            var playerDiv = document.getElementById('player');
+            playerDiv.style.display = 'flex';
+            playerDiv.style.flexDirection = 'column';
+            playerDiv.style.justifyContent = 'center';
+            playerDiv.style.alignItems = 'center';
+            playerDiv.style.height = 'calc(100vh - 144px)';
+            playerDiv.style.marginTop = '72px';
+
+            function onPlayerReady(event) {
+                event.target.playVideo();
+            }
+
+            document.getElementById("navigation_buttons").classList.add("show");
+        </script>
+    </body>
+</html>

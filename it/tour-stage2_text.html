@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Vai alla pagina principale" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1_text.html"><img src="./resources/section_button_images/getting_started_normal.png" alt="Introduzione" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/getting_started_hovered.png';" onmouseout="this.src='./resources/section_button_images/getting_started_normal.png';"></a>
+                    <a href="tour-stage2_text.html"><img src="./resources/section_button_images/managing_servicing_hovered.png" alt="Gestione e manutenzione delle immagini di Windows" draggable="false" oncontextmenu="return false;"></a>
+                    <a href="tour-stage3_text.html"><img src="./resources/section_button_images/testing_deploying_normal.png" alt="Test e distribuzione delle immagini di Windows" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='./resources/section_button_images/testing_deploying_normal.png';"></a>
+                </div>
+            </header>
+            <main>
+                <a name="top"></a>
+                <div class="stage_title">
+                    Gestione e manutenzione delle immagini Windows
+                </div>
+                <div class="stage_contents">
+                    <p>Rendiamo la tua immagine di Windows <b>tua.</b></p>
+                    <h1>Conoscere la nostra immagine montata</h1>
+                    <p>Prima di procedere a modificare la nostra immagine di Windows, raccoglieremo alcune informazioni su di essa, così sapremo su cosa stiamo lavorando. Questo si può fare con la moltitudine di finestre informative disponibili in questo programma. Otterremo informazioni generali sulla nostra immagine, come il suo nome e la sua dimensione, andando qui (passa prima alla sezione <b>IMMAGINE</b> sul lato sinistro):</p>
+                    <img src="../resources/section_images/managing_servicing/view_image_properties_link.png" />
+                    <p>Vedremo le seguenti informazioni:</p>
+                    <img src="../resources/section_images/managing_servicing/image_properties.png" />
+                    <p>Queste informazioni verranno aggiornate dopo aver confermato la nostra immagine, ma inizieremo prima a effettuare le modifiche.</p>
+                    <h1>Personalizzare l'immagine di Windows</h1>
+                    <p>Eseguiremo una serie di modifiche alla nostra immagine di Windows. Immaginiamo questo esempio: stiamo lavorando su un'immagine di Windows 11 Pro che poi distribuiremo ai computer della nostra organizzazione. Vogliamo quanto segue:</p>
+                    <ul>
+                        <li>Supporto integrato per Windows Subsystem for Linux (WSL) e per macchine virtuali con <a href="https://en.wikipedia.org/wiki/Hyper-V">Hyper-V</a></li>
+                        <li>Ridurre la quantità di bloatware, ma quanto basta per non compromettere il sistema di destinazione</li>
+                    </ul>
+                    <p>L'immagine da cui partiamo è piuttosto datata, quindi la aggiorneremo. Questo tour separerà ogni attività in sezioni, in modo da poter seguire il processo più facilmente.</p>
+                    <h2>Abilitare le funzionalità</h2>
+                    <p>Sia Hyper-V che Windows Subsystem for Linux sono funzionalità che possono essere abilitate in un'immagine di Windows. Per vedere lo stato in cui si trovano, cliccheremo il pulsante &quot;Ottieni informazioni funzionalità...&quot;. Vedremo un elenco di tutte le funzionalità presenti nell'immagine. Per restringere i risultati della ricerca, digitiamo la nostra query nella casella di ricerca, come mostrato qui:</p>
+                    <img src="../resources/section_images/managing_servicing/feature_info.png" />
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Puoi saperne di più nella documentazione della Guida</a></span>
+                    </div>                    
+                    <p>In questo esempio, entrambe sono disabilitate, quindi abilitiamole. Possiamo farlo cliccando il pulsante &quot;Abilita funzionalità...&quot;. Successivamente selezioniamo le funzionalità da abilitare, insieme alle eventuali opzioni, e clicchiamo OK. In questo esempio, proseguiremo con le seguenti opzioni:</p>
+                    <img src="../resources/section_images/managing_servicing/enable_feature.png" />
+                    <p>Ecco un breve riassunto delle opzioni selezionate:</p>
+                    <ul>
+                        <li><b>Abilita tutte le funzionalità parent</b> ci fa risparmiare tempo abilitando tutte le funzionalità correlate a quelle selezionate. Ad esempio, è più rapido selezionare <code>Microsoft-Hyper-V-All</code> e attivare questa opzione che selezionare tutte le funzionalità di Hyper-V una alla volta. La prima scelta abiliterà automaticamente tutte le altre in un colpo solo</li>
+                        <li><b>Conferma immagine dopo aver abilitato le funzionalità</b> salverà automaticamente le modifiche all'immagine dopo l'abilitazione. È una buona pratica confermare le modifiche dopo ogni operazione sull'immagine, perché sarà più facile tornare a una versione precedente se una modifica non funziona</li>
+                    </ul>
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>Una funzionalità potrebbe apparire in questo elenco come <code>Removed</code>. In tal caso, è necessario fornire una sorgente. La sorgente, in molti casi, è la cartella <code>sxs</code> nei supporti di installazione di Windows. Monta il file ISO e specifica la cartella <code>sources\sxs</code> nella finestra di dialogo per la selezione della cartella. Procedi in questo modo:</p>
+                        <img src="../resources/section_images/managing_servicing/enable_feature_custom_source.png" />
+                        <p>Nel nostro esempio non è necessario, ma potrebbe esserlo quando lo fai tu.</p>
+                        <p>Affinché ciò funzioni, sia l'immagine di Windows che il supporto di installazione devono avere la stessa versione. Per questo motivo è consigliabile farlo prima. Altrimenti dovrai attendere di installare l'immagine di Windows per abilitare una funzionalità tramite Windows Update oppure usare supporti aggiornati.</p>
+                    </div>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Puoi saperne di più nella documentazione della Guida</a></span>
+                    </div>
+                    <p>Dopo aver completato l'operazione, puoi tornare alla finestra di informazioni sulle funzionalità e verificare lo stato delle funzionalità selezionate. Ora proseguiremo con l'aggiornamento dell'immagine di Windows.</p>
+                    <h2>Aggiunta dei pacchetti</h2>
+                    <p>Ora aggiorniamo la nostra immagine con gli ultimi pacchetti di aggiornamento. Puoi scaricarli dal <a href="https://catalog.update.microsoft.com">Microsoft Update Catalog</a>. Una volta scaricati, clicchiamo il pulsante &quot;Aggiungi pacchetto...&quot;. Poi selezioniamo la posizione in cui si trovano i file di aggiornamento. Infine, selezioniamo quelli che vogliamo installare e clicchiamo OK:</p>
+                    <img src="../resources/section_images/managing_servicing/add_package.png" />
+                    
+                    <p>In questo esempio vogliamo aggiungere tutti i pacchetti trovati. È meglio aggiungere i pacchetti in piccoli gruppi, poiché l'operazione è piuttosto lunga, e confermeremo le modifiche dopo ogni gruppo. Preparati con bevande e snack, o fai altro, mentre l'operazione è in corso.</p>
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>DISMTools supporta l'aggiunta sia di file CAB che di file MSU. Per utenti più esperti, supporta anche l'aggiunta di manifest di aggiornamento indipendenti.</p>
+                    </div>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Puoi saperne di più nella documentazione della Guida</a></span>
+                    </div>
+                    <p>In seguito puoi andare alla finestra di informazioni sui pacchetti per consultare i pacchetti recentemente installati. <a class="learn_more_in_help" href="#">Puoi saperne di più nella documentazione della Guida</a>.</p>
+                    <h2>Rimozione delle applicazioni dallo Store</h2>
+                    <p>Una delle molte forme di bloat in Windows consiste nelle applicazioni dello Store che potresti non voler avere. Mentre puoi rimuoverle dopo aver installato il sistema, puoi anche installare il SO con quelle applicazioni già rimosse. Per farlo clicchiamo il pulsante &quot;Rimuovi pacchetto AppX&quot;. In questa finestra selezioniamo le applicazioni da rimuovere e clicchiamo OK:</p>
+                    <img src="../resources/section_images/managing_servicing/remove_apps.png" />
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>Assicurati di sapere cosa rimuoverai. Sempre più componenti di sistema in Windows dipendono da alcune di queste applicazioni, e potresti compromettere il funzionamento del sistema se non sei prudente. Puoi cercare i nomi delle applicazioni, che trovi nella seconda colonna, online per determinare se vuoi rimuoverle.</p>
+                    </div>
+                    <p>Puoi eseguire altre operazioni se lo desideri, ma proseguiremo con l'ultimo passaggio: la distribuzione del sistema operativo.</p>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Puoi saperne di più nella documentazione della Guida</a></span>
+                    </div>
+                    <h1>Ho finito. E adesso?</h1>
+                    <p>Dopo aver personalizzato l'immagine, puoi procedere in 2 modi:</p>
+                    <ul>
+                        <li>Da solo, o</li>
+                        <li>Con l'aiuto della tappa rimanente di questo tour</li>
+                    </ul>
+                    <p>Se vuoi continuare il tour, clicca il pulsante della Tappa 3 in alto a destra per andare alla sua versione testuale.</p>
+                    <p>Se vuoi continuare il tour in formato video, clicca <a href="tour-stage3_video.html">qui</a>.</p>
+                    <br>
+                    <p>Se ti sei perso in qualche passaggio, puoi tornare a <a href="./tour-stage1_text.html#startwithdt">Tappa 1</a>. Poi procedi alla Tappa 3.</p>
+                </div>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Segnala un problema</a>                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Si prega di ingrandire la finestra per visualizzare il tour.
+        </div>
+        <script>
+            var helpLinks = document.getElementsByClassName("learn_more_in_help");
+            if (helpLinks.length > 0) {
+                for (let i = 0; i < helpLinks.length; i++) {
+                    helpLinks[i].addEventListener("click", function() {
+                        alert("Per saperne di più su questa attività, vai su \"Guida -> Argomenti della Guida\", oppure premi F1");
+                    });
+                }
+            }
+            document.getElementById("navigation_buttons").classList.add("show");
+        </script>
+    </body>
+</html>

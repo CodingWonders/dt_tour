@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Aller à la page principale" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1_text.html"><img src="./resources/section_button_images/getting_started_normal.png" alt="Premiers pas" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/getting_started_hovered.png';" onmouseout="this.src='./resources/section_button_images/getting_started_normal.png';"></a>
+                    <a href="tour-stage2_text.html"><img src="./resources/section_button_images/managing_servicing_normal.png" alt="Gestion et maintenance des images Windows" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='./resources/section_button_images/managing_servicing_normal.png';"></a>
+                    <a href="tour-stage3_text.html"><img src="./resources/section_button_images/testing_deploying_hovered.png" alt="Test et déploiement d'images Windows" draggable="false" oncontextmenu="return false;"></a>
+                </div>
+            </header>
+            <main>
+                <a name="top"></a>
+                <div class="stage_title">
+                    Test et déploiement des images Windows
+                </div>
+                <div class="stage_contents">
+                    <p>Installons votre image Windows sur quelques ordinateurs, d'accord&nbsp;?</p>
+                    <h1>Accélérer le processus d'installation</h1>
+                    <p>L'une des exigences est que tous les ordinateurs disposent d'un compte local nommé &quot;John Doe&quot;. Une autre exigence est de passer autant de questions que possible durant l'<abbr title="Expérience hors boîte">OOBE</abbr>. Tout cela peut être entièrement automatisé avec un <b>fichier de réponse silencieuse</b>. Pour commencer à les créer, vous pouvez utiliser l'assistant de création. Pour y accéder, allez dans Outils puis cliquez sur Créateur de fichiers de réponse silencieuse.</p>
+                    <img src="../resources/section_images/testing_deploying/unatt_creator_menu.png" />
+                    <div class="important_block">
+                        <p class="ibh">Remarque :</p>
+                        <p>Vous pouvez voir la boîte de dialogue suivante lorsque vous lancez cette tâche&nbsp;:</p>
+                        <img src="../resources/section_images/testing_deploying/net9_runtime_missing.png" />
+                        <p>Cela peut arriver si vous n'avez pas le runtime .NET 9 pour bureau, qui est une exigence pour le programme générateur de fichiers de réponse. Vous pouvez procéder de deux façons&nbsp;: en <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime">téléchargeant le runtime .NET 9 pour bureau</a>, ou en laissant DISMTools télécharger la version autonome après avoir cliqué sur Oui.</p>
+                        <p>Notez aussi que l'exigence concernant le runtime .NET peut changer à l'avenir si le composant sous-jacent utilise un nouveau runtime.</p>
+                    </div>
+                    <p>Puis, vous pouvez suivre les étapes de l'assistant. Finalement, vous aurez un fichier de réponse silencieuse et arriverez à cet écran&nbsp;:</p>
+                    <img src="../resources/section_images/testing_deploying/unatt_creator_finish.png" />
+                    <p>Sur cet écran, vous pouvez effectuer d'autres tâches avec l'assistant, comme créer un autre fichier de réponse ou ouvrir son emplacement. La tâche qui nous intéresse est <b>l'application du fichier de réponse</b>. Cliquez sur le troisième lien puis cliquez sur OK dans cette boîte de dialogue&nbsp;:</p>
+                    <img src="../resources/section_images/testing_deploying/apply_unattended_file.png" />
+                    <p>Enfin, enregistrez vos modifications. Maintenant, nous allons créer le fichier ISO.</p>
+                    <h1>Création du fichier ISO</h1>
+                    <p>Pour commencer la création de l'ISO, allez dans Outils puis cliquez sur Créer une image disque...</p>
+                    <img src="../resources/section_images/testing_deploying/isocreator_menu.png" />
+                    <div class="important_block">
+                        <p class="ibh">Remarque :</p>
+                        <p>Cette tâche nécessite le Windows Assessment and Deployment Kit (ADK). Si DISMTools ne le détecte pas, il vous sera proposé de le télécharger et de l'installer automatiquement.</p>
+                        <img src="../resources/section_images/testing_deploying/isocreator_noadk.png" />
+                        <p>Cela peut prendre un certain temps, pendant lequel vous verrez des informations de progression&nbsp;:</p>
+                        <img src="../resources/section_images/testing_deploying/isocreator_adk_install.png" />
+                        <p>Après l'installation, vous pourrez continuer normalement.</p>
+                    </div>
+                    <p>Vous verrez la fenêtre suivante&nbsp;:</p>
+                    <img src="../resources/section_images/testing_deploying/isocreator.png" />
+                    <p>Dans cette fenêtre, vous devrez suivre ces étapes</p>
+                    <ol>
+                        <li>
+                            Choisissez votre image Windows. Vous pouvez la choisir à l'aide de l'un des 3 boutons en haut&nbsp;:
+                            <ul>
+                                <li><b>Parcourir...</b> vous permettra de spécifier une image Windows dans n'importe quel emplacement</li>
+                                <li><b>Choisir...</b> vous permettra de spécifier une image parmi toutes les images montées. Vous verrez une liste dans laquelle vous pourrez la sélectionner</li>
+                                <li><b>Utiliser l'image montée</b> utilisera l'image sur laquelle vous travaillez actuellement</li>
+                            </ul>
+                        </li>
+                        <li>Choisissez une destination pour votre fichier ISO</li>
+                        <li>Cliquez sur Créer. Notez que, si le fichier ISO de destination existe, il sera écrasé ; et que vous devez vous assurer que l'image Windows a bien toutes ses modifications enregistrées</li>
+                    </ol>
+                    <p>Pour résumer ces étapes, voici une image les illustrant&nbsp;:</p>
+                    <img src="../resources/section_images/testing_deploying/isocreator_steps.png" />
+                    <p>Ce sont les étapes essentielles. Vous pouvez configurer d'autres options, comme la copie vers des lecteurs Ventoy, si vous le souhaitez. Mais, dans cet exemple, nous continuerons avec les paramètres par défaut. Après avoir cliqué sur OK, une nouvelle fenêtre apparaîtra. Cette fenêtre créera le fichier ISO que vous pourrez ensuite utiliser&nbsp;:</p>
+                    <img src="../resources/section_images/testing_deploying/isocreator_pe_helper.png" />
+                    <p>Cela prendra un certain temps, vous pouvez faire autre chose en attendant. Une fois la création terminée, vous pourrez utiliser votre fichier ISO. Vous pouvez&nbsp;:</p>
+                    <ul>
+                        <li>Utiliser votre fichier ISO dans une machine virtuelle</li>
+                        <li>Le flasher sur une clé USB avec Rufus</li>
+                        <li>Le copier sur un lecteur Ventoy</li>
+                    </ul>
+                    <p>Nous allons continuer en installant le système d'exploitation dans une machine virtuelle.</p>
+                    <h1>Installation du système cible</h1>
+                    <p>Pour ce faire, démarrez votre système depuis l'ISO&nbsp;:</p>
+                    <img src="../resources/section_images/testing_deploying/targetinstall_bootmenu.png" />
+                    <p>Puis, suivez les étapes de l'assistant d'installation&nbsp;:</p>
+                    <img src="../resources/section_images/testing_deploying/targetinstall_installwizard.png" />
+                    <div class="important_block">
+                        <p class="ibh">Remarque :</p>
+                        <p>Choisissez le disque ou le volume cible avec précaution, car vous pouvez supprimer tous les fichiers qu'il contient. Notez également l'index de l'image que vous modifiez au cas où l'image comprend plusieurs index.</p>
+                    </div>
+                    <p>Vous devriez avoir le système cible prêt bientôt. Cela prendra un certain temps, selon la vitesse de votre ordinateur. Voici les résultats que vous devriez obtenir avec votre image Windows&nbsp;:</p>
+                    <img src="../resources/section_images/testing_deploying/targetinstall_results.png" />
+                    <p><i>Il s'agit d'une image composite où le seul changement est le fond d'écran. Vous devriez quand même voir le reste des modifications.</i></p>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Vous pouvez en apprendre davantage sur la création de fichiers de réponse silencieuse et les tests d'images dans la documentation d'aide</a></span>
+                    </div>
+                    <h1>Remarques finales</h1>
+                    <p>Si vous disposez d'une salle informatique et souhaitez déployer cette image sur plusieurs ordinateurs en même temps, vous pouvez opter pour une installation via le réseau. Bien que cette visite ne couvre pas ce cas, vous pouvez apprendre comment le faire <a class="learn_more_in_help" href="#">en consultant la documentation d'aide</a>.</p>
+                    <div class="important_block">
+                        <p class="ibh">Remarque :</p>
+                        <p>DISMTools ne prend en charge que Windows Deployment Services pour le moment, et le guide de la documentation d'aide est conçu pour cette solution de déploiement.</p>
+                    </div>
+                    <h1>Félicitations&nbsp;! Vous avez terminé la visite</h1>
+                    <p>Vous pouvez maintenant continuer à personnaliser et tester votre image Windows, ou démarrer un nouveau projet avec une nouvelle image. Les possibilités sont infinies. Si vous êtes perdu ou souhaitez en savoir plus sur ce que DISMTools propose, n'hésitez pas à consulter la documentation d'aide. Vous pouvez également ouvrir la visite à tout moment.</p>
+                </div>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Signaler un problème</a>                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Veuillez agrandir la fenêtre pour voir la visite.
+        </div>
+        <script>
+            var helpLinks = document.getElementsByClassName("learn_more_in_help");
+            if (helpLinks.length > 0) {
+                for (let i = 0; i < helpLinks.length; i++) {
+                    helpLinks[i].addEventListener("click", function() {
+                        alert("Allez dans \"Aide -> Rubriques d'aide\", ou appuyez sur F1 pour ouvrir la documentation d'aide.");
+                    });
+                }
+            }
+            document.getElementById("navigation_buttons").classList.add("show");
+        </script>
+    </body>
+</html>

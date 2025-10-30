@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body">
+            <header>
+                <picture>
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;">
+                </picture>
+            </header>
+            <aside>
+                <div id="image_container">
+                    <img id="image" src="../resources/main_page_images/stage1.png" draggable="false" oncontextmenu="return false;">
+                </div>
+            </aside>
+            <main>
+                <section class="article_section">
+                    <hgroup>
+                        <h1>1</h1>
+                    </hgroup>
+                    <article>
+                        <h2 class="article_section_content_header">Commencer</h2>
+                        <p>Découvrez les outils de déploiement et de maintenance de Microsoft Windows, et apprenez à réaliser les opérations de base avec DISMTools.</p>
+                        <div>
+                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="tour-stage1_video.html">Regarder la vidéo</a></span>
+                            <span><i class="mdl2 mdl2-align-left" aria-hidden="true"></i><a href="tour-stage1_text.html">Lire la version texte</a></span>
+                        </div>
+                    </article>
+                </section>
+                <section class="article_section">
+                    <hgroup>
+                        <h1>2</h1>
+                    </hgroup>
+                    <article>
+                        <h2 class="article_section_content_header">Gestion et maintenance des images Windows</h2>
+                        <p>Découvrez les tâches de gestion et de maintenance réalisables avec <abbr title="Deployment Imaging Servicing and Management tool">DISM</abbr> et comment DISMTools peut vous aider à chaque étape.</p>
+                        <div>
+                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="tour-stage2_video.html">Regarder la vidéo</a></span>
+                            <span><i class="mdl2 mdl2-align-left" aria-hidden="true"></i><a href="tour-stage2_text.html">Lire la version texte</a></span>
+                        </div>
+                    </article>
+                </section>
+                <section class="article_section">
+                    <hgroup>
+                        <h1>3</h1>
+                    </hgroup>
+                    <article>
+                        <h2 class="article_section_content_header">Test et déploiement des images Windows</h2>
+                        <p>Profitez des fonctionnalités de DISMTools pour créer des images disque personnalisées pour les tests et le déploiement sur un ordinateur, ou sur votre réseau via les Windows Deployment Services.</p>
+                        <div>
+                            <span><i class="mdl2 mdl2-play" aria-hidden="true"></i><a href="tour-stage3_video.html">Regarder la vidéo</a></span>
+                            <span><i class="mdl2 mdl2-align-left" aria-hidden="true"></i><a href="tour-stage3_text.html">Lire la version texte</a></span>
+                        </div>
+                    </article>
+                </section>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Signaler un problème</a>
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Veuillez agrandir la fenêtre pour voir la visite.
+        </div>
+        <script>
+            var menuItems = document.getElementsByClassName("article_section");
+            var image = document.getElementById("image");
+            var images = [
+                "../resources/main_page_images/stage1.png",
+                "../resources/main_page_images/stage2.png",
+                "../resources/main_page_images/stage3.png"
+            ];
+            var currentImageIndex = 0;
+
+            for (var i = 0; i < menuItems.length; i++) {
+                menuItems[i].addEventListener("mouseover", function() {
+                    this.querySelector('div').style.display = 'flex';
+                    var index = Array.prototype.indexOf.call(menuItems, this);
+                    if (currentImageIndex !== index) {
+                        image.src = images[index];
+                        currentImageIndex = index;
+                    }
+                });
+                menuItems[i].addEventListener("mouseout", function() {
+                    this.querySelector('div').style.display = 'none';
+                });
+            }
+        </script>
+    </body>
+</html>

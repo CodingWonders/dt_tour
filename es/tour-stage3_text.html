@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Ir a la página principal" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1_text.html"><img src="./resources/section_button_images/getting_started_normal.png" alt="Introducción" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/getting_started_hovered.png';" onmouseout="this.src='./resources/section_button_images/getting_started_normal.png';"></a>
+                    <a href="tour-stage2_text.html"><img src="./resources/section_button_images/managing_servicing_normal.png" alt="Administrar y dar servicio a imágenes de Windows" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='./resources/section_button_images/managing_servicing_normal.png';"></a>
+                    <a href="tour-stage3_text.html"><img src="./resources/section_button_images/testing_deploying_hovered.png" alt="Probar e implementar imágenes de Windows" draggable="false" oncontextmenu="return false;"></a>
+                </div>
+            </header>
+            <main>
+                <a name="top"></a>
+                <div class="stage_title">
+                    Probar e implementar imágenes de Windows
+                </div>
+                <div class="stage_contents">
+                    <p>¿Vamos a instalar su imagen de Windows en algunos equipos, verdad?</p>
+                    <h1>Acelerando el proceso de instalación</h1>
+                    <p>Uno de los requisitos es que todos los equipos tengan una cuenta local llamada &quot;John Doe&quot;. Otro requisito es omitir tantas preguntas en la <abbr title="Out of Box Experience">OOBE</abbr> como sea posible. Todo esto se puede automatizar por completo con un <b>archivo de respuestas desatendidas</b>. Para comenzar a crearlo, puede usar el asistente de creación. Para acceder, vaya a Herramientas y haga clic en Creador de archivos de respuestas desatendidas.</p>
+                    <img src="../resources/section_images/testing_deploying/unatt_creator_menu.png" />
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>Puede ver el siguiente cuadro de diálogo al iniciar esta tarea:</p>
+                        <img src="../resources/section_images/testing_deploying/net9_runtime_missing.png" />
+                        <p>Esto puede ocurrir si no tiene el runtime de escritorio .NET 9, que es un requisito para el programa generador de archivos de respuestas subyacente. Puede proceder de 2 maneras: descargando el <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime">runtime de escritorio .NET 9</a>, o dejando que DISMTools descargue la versión autónoma después de hacer clic en Sí.</p>
+                        <p>Tenga en cuenta también que el requisito del runtime de .NET puede cambiar en el futuro si el componente subyacente utiliza una nueva versión.</p>
+                    </div>
+                    <p>Luego, puede seguir los pasos del asistente. Eventualmente tendrá un archivo de respuestas desatendidas y llegará a esta pantalla:</p>
+                    <img src="../resources/section_images/testing_deploying/unatt_creator_finish.png" />
+                    <p>En esta pantalla puede realizar más tareas con el asistente, como crear otro archivo de respuestas u abrir su ubicación. La tarea que nos interesa realizar es <b>aplicar el archivo de respuestas</b>. Haga clic en el tercer enlace y luego haga clic en Aceptar en este diálogo:</p>
+                    <img src="../resources/section_images/testing_deploying/apply_unattended_file.png" />
+                    <p>Finalmente, guarde sus cambios. Ahora, crearemos el archivo ISO.</p>
+                    <h1>Crear el archivo ISO</h1>
+                    <p>Para iniciar la creación del ISO, vaya a Herramientas y haga clic en Crear imagen de disco...</p>
+                    <img src="../resources/section_images/testing_deploying/isocreator_menu.png" />
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>Esta tarea requiere el Windows Assessment and Deployment Kit (ADK). Si DISMTools no lo detecta, se le dará la opción de descargar e instalar automáticamente la versión más reciente.</p>
+                        <img src="../resources/section_images/testing_deploying/isocreator_noadk.png" />
+                        <p>Esto puede tardar un tiempo, durante el cual verá información de progreso:</p>
+                        <img src="../resources/section_images/testing_deploying/isocreator_adk_install.png" />
+                        <p>Después de la instalación, puede continuar normalmente.</p>
+                    </div>
+                    <p>Verá la siguiente ventana:</p>
+                    <img src="../resources/section_images/testing_deploying/isocreator.png" />
+                    <p>En esta ventana deberá seguir estos pasos</p>
+                    <ol>
+                        <li>
+                            Elija su imagen de Windows. Puede elegirla usando uno de los 3 botones que encontrará en la parte superior:
+                            <ul>
+                                <li><b>Examinar...</b> le permitirá especificar una imagen de Windows en cualquier ubicación</li>
+                                <li><b>Seleccionar...</b> le permitirá especificar una imagen de Windows entre todas las imágenes montadas. Verá una lista de la que podrá elegir</li>
+                                <li><b>Usar imagen montada</b> utilizará la imagen en la que está trabajando actualmente</li>
+                            </ul>
+                        </li>
+                        <li>Elija un destino para su archivo ISO</li>
+                        <li>Haga clic en Crear. Tenga en cuenta que, si el archivo ISO de destino existe, se sobrescribirá; y que debe asegurarse de que la imagen de Windows tenga todos sus cambios guardados</li>
+                    </ol>
+                    <p>Para resumir estos pasos, aquí hay una imagen que los muestra:</p>
+                    <img src="../resources/section_images/testing_deploying/isocreator_steps.png" />
+                    <p>Estos son los pasos esenciales. Puede configurar más opciones, como copiar a unidades Ventoy, si lo desea. Pero en este ejemplo continuaremos con los valores predeterminados. Después de hacer clic en Aceptar, aparecerá una nueva ventana. Esta ventana creará el archivo ISO que podrá usar más tarde:</p>
+                    <img src="../resources/section_images/testing_deploying/isocreator_pe_helper.png" />
+                    <p>Esto tomará un tiempo, así que siéntase libre de hacer otras cosas. Después de que la creación termine, podrá usar su archivo ISO. Puede:</p>
+                    <ul>
+                        <li>Usar su archivo ISO en una máquina virtual</li>
+                        <li>Grabarlo en una unidad USB con Rufus</li>
+                        <li>Copiarlo a una unidad Ventoy</li>
+                    </ul>
+                    <p>Continuaremos instalando el sistema operativo en una máquina virtual.</p>
+                    <h1>Instalación del sistema de destino</h1>
+                    <p>Para ello, arranque su sistema con el ISO:</p>
+                    <img src="../resources/section_images/testing_deploying/targetinstall_bootmenu.png" />
+                    <p>Luego, siga los pasos del asistente de instalación:</p>
+                    <img src="../resources/section_images/testing_deploying/targetinstall_installwizard.png" />
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>Elija el disco o volumen de destino con cuidado, ya que puede eliminar todos los archivos que contenga. Además, tome nota del índice de la imagen que está modificando en caso de que la imagen tenga varios índices.</p>
+                    </div>
+                    <p>Debería tener el sistema de destino listo pronto. Tomará un tiempo, dependiendo de la velocidad de su equipo. Estos son los resultados que debería obtener con su imagen de Windows:</p>
+                    <img src="../resources/section_images/testing_deploying/targetinstall_results.png" />
+                    <p><i>Esta es una imagen compuesta donde el único cambio es el fondo de pantalla. Aún así debería ver el resto de los cambios.</i></p>
+                    <div>
+                        <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">Puede aprender más sobre la creación de archivos de respuestas desatendidas y la prueba de imágenes en la documentación de Ayuda</a></span>
+                    </div>
+                    <h1>Observaciones finales</h1>
+                    <p>Si tiene un laboratorio de computadoras y quiere implementar esta imagen en varios equipos al mismo tiempo, puede optar por realizar una instalación por red. Aunque este Tour no lo cubrirá, puede aprender cómo hacerlo <a class="learn_more_in_help" href="#">consultando la documentación de Ayuda</a>.</p>
+                    <div class="important_block">
+                        <p class="ibh">Nota:</p>
+                        <p>DISMTools actualmente solo soporta Windows Deployment Services, y la guía en la documentación de Ayuda está diseñada para esta solución de despliegue.</p>
+                    </div>
+                    <h1>¡Felicidades! Ha completado el Tour</h1>
+                    <p>Ahora puede continuar personalizando y probando su imagen de Windows, o iniciar un nuevo proyecto con una imagen distinta. Las posibilidades son infinitas. Si alguna vez se pierde o quiere aprender más sobre lo que DISMTools ofrece, <a class="learn_more_in_help" href="#">no dude en consultar la documentación de Ayuda</a>. También puede abrir el Tour en cualquier momento.</p>
+                </div>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Informar de un problema</a>                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Por favor, aumente el tamaño de la ventana para ver el tour.
+        </div>
+        <script>
+            var helpLinks = document.getElementsByClassName("learn_more_in_help");
+            if (helpLinks.length > 0) {
+                for (let i = 0; i < helpLinks.length; i++) {
+                    helpLinks[i].addEventListener("click", function() {
+                        alert("Vaya a \"Ayuda -> Temas de ayuda\", o presione F1 para abrir la documentación de Ayuda.");
+                    });
+                }
+            }
+            document.getElementById("navigation_buttons").classList.add("show");
+        </script>
+    </body>
+</html>

@@ -3,24 +3,24 @@
     <head>
         <meta charset="utf-8">
         <title>DISMTools Tour</title>
-        <link rel="stylesheet" href="styles/styles-common.css" media="(prefers-color-scheme: light)">
-        <link rel="stylesheet" href="styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
-        <link rel="stylesheet" href="mdl2/css/mdl2-icons.min.css">
-        <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
-        <script src="./scripts/diagnostics.js"></script>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
     </head>
     <body style="margin: 0; overflow: hidden;">
         <div id="main_tour_body_stages">
             <header>
                 <picture>
-                    <source srcset="resources/logo_dark.png" media="(prefers-color-scheme: dark)">
-                    <source srcset="resources/logo.png" media="(prefers-color-scheme: light)">
-                    <img id="logo_image" title="Go to the main page" src="resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Go to the main page" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
                 </picture>
                 <div id="navigation_buttons">
-                    <a href="tour-stage1_text.html"><img src="resources/section_button_images/getting_started_normal.png" alt="Getting Started" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/getting_started_hovered.png';" onmouseout="this.src='resources/section_button_images/getting_started_normal.png';"></a>
-                    <a href="tour-stage2_text.html"><img src="resources/section_button_images/managing_servicing_normal.png" alt="Managing and servicing Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='resources/section_button_images/managing_servicing_normal.png';"></a>
-                    <a href="tour-stage3_text.html"><img src="resources/section_button_images/testing_deploying_hovered.png" alt="Testing and deploying Windows images" draggable="false" oncontextmenu="return false;"></a>
+                    <a href="tour-stage1_text.html"><img src="./resources/section_button_images/getting_started_normal.png" alt="Getting Started" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/getting_started_hovered.png';" onmouseout="this.src='./resources/section_button_images/getting_started_normal.png';"></a>
+                    <a href="tour-stage2_text.html"><img src="./resources/section_button_images/managing_servicing_normal.png" alt="Managing and servicing Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='./resources/section_button_images/managing_servicing_normal.png';"></a>
+                    <a href="tour-stage3_text.html"><img src="./resources/section_button_images/testing_deploying_hovered.png" alt="Testing and deploying Windows images" draggable="false" oncontextmenu="return false;"></a>
                 </div>
             </header>
             <main>
@@ -32,32 +32,32 @@
                     <p>Let's install your Windows image to some computers, shall we?</p>
                     <h1>Speeding up the installation process</h1>
                     <p>One of the requirements is for all computers to have a local account named &quot;John Doe&quot;. Another requirement is to skip as many questions in the <abbr title="Out of Box Experience">OOBE</abbr> as possible. All of this can be completely automated with an <b>unattended answer file</b>. To begin creating them, you can use the creation wizard. To access it, go to Tools and then click Unattended answer file creator.</p>
-                    <img src="./resources/section_images/testing_deploying/unatt_creator_menu.png" />
+                    <img src="../resources/section_images/testing_deploying/unatt_creator_menu.png" />
                     <div class="important_block">
                         <p class="ibh">Note:</p>
                         <p>You may see the following dialog when you start this task:</p>
-                        <img src="./resources/section_images/testing_deploying/net9_runtime_missing.png" />
+                        <img src="../resources/section_images/testing_deploying/net9_runtime_missing.png" />
                         <p>This can happen if you don't have the .NET 9 desktop runtime, which is a requirement for the underlying answer file generator program. You can proceed in 2 ways: by <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime">downloading the .NET 9 Desktop Runtime</a>, or by letting DISMTools download the self-contained version after clicking Yes.</p>
                         <p>Also note that the .NET Runtime requirement may change in the future once the underlying component in question uses a new runtime.</p>
                     </div>
                     <p>Then, you can follow the steps in the wizard. Eventually, you will have an unattended answer file and arrive at this screen:</p>
-                    <img src="./resources/section_images/testing_deploying/unatt_creator_finish.png" />
+                    <img src="../resources/section_images/testing_deploying/unatt_creator_finish.png" />
                     <p>On this screen you can perform more tasks with the wizard, such as creating another answer file or opening its location. The task we are interested in performing is <b>applying the answer file</b>. Click the third link and then click OK in this dialog:</p>
-                    <img src="./resources/section_images/testing_deploying/apply_unattended_file.png" />
+                    <img src="../resources/section_images/testing_deploying/apply_unattended_file.png" />
                     <p>Finally, save your changes. Now, we'll create the ISO file.</p>
                     <h1>Creating the ISO file</h1>
                     <p>To begin ISO creation, head over to Tools and then click Create disc image...</p>
-                    <img src="./resources/section_images/testing_deploying/isocreator_menu.png" />
+                    <img src="../resources/section_images/testing_deploying/isocreator_menu.png" />
                     <div class="important_block">
                         <p class="ibh">Note:</p>
                         <p>This task requires the Windows Assessment and Deployment Kit (ADK). If DISMTools can't detect it, you will be given the option to automatically download and install the latest one for you.</p>
-                        <img src="./resources/section_images/testing_deploying/isocreator_noadk.png" />
+                        <img src="../resources/section_images/testing_deploying/isocreator_noadk.png" />
                         <p>This can take some time, during which you will see some progress information:</p>
-                        <img src="./resources/section_images/testing_deploying/isocreator_adk_install.png" />
+                        <img src="../resources/section_images/testing_deploying/isocreator_adk_install.png" />
                         <p>After installation, you can continue normally.</p>
                     </div>
                     <p>You will see the following window:</p>
-                    <img src="./resources/section_images/testing_deploying/isocreator.png" />
+                    <img src="../resources/section_images/testing_deploying/isocreator.png" />
                     <p>In this window, you will have to follow these steps</p>
                     <ol>
                         <li>
@@ -72,9 +72,9 @@
                         <li>Click Create. Note that, if the destination ISO file exists, it will be overwritten; and that you need to make sure the Windows image has all its changes saved</li>
                     </ol>
                     <p>To summarize these steps, here is a picture featuring them:</p>
-                    <img src="./resources/section_images/testing_deploying/isocreator_steps.png" />
+                    <img src="../resources/section_images/testing_deploying/isocreator_steps.png" />
                     <p>These are the essential steps. You can configure more, like copying to Ventoy drives, if you want. But, in this example, we'll continue with the defaults. After clicking OK, a new window will appear. This window will create the ISO file that you can later use:</p>
-                    <img src="./resources/section_images/testing_deploying/isocreator_pe_helper.png" />
+                    <img src="../resources/section_images/testing_deploying/isocreator_pe_helper.png" />
                     <p>This will take some time, so feel free to do other things. After creation is complete, you can now use your ISO file. You can:</p>
                     <ul>
                         <li>Use your ISO file on a Virtual Machine</li>
@@ -84,15 +84,15 @@
                     <p>We'll continue by installing the OS in a virtual machine.</p>
                     <h1>Installing the target system</h1>
                     <p>To do this, boot your system to the ISO:</p>
-                    <img src="./resources/section_images/testing_deploying/targetinstall_bootmenu.png" />
+                    <img src="../resources/section_images/testing_deploying/targetinstall_bootmenu.png" />
                     <p>Then, follow the steps in the installation wizard:</p>
-                    <img src="./resources/section_images/testing_deploying/targetinstall_installwizard.png" />
+                    <img src="../resources/section_images/testing_deploying/targetinstall_installwizard.png" />
                     <div class="important_block">
                         <p class="ibh">Note:</p>
                         <p>Choose the target disk or volume carefully as you may delete all your files inside it. Also, take note of the index of the image you are modifying in case the image has multiple indexes.</p>
                     </div>
                     <p>You should have the target system ready soon. It will take a while, depending on the speed of your computer. These are the results you should get with your Windows image:</p>
-                    <img src="./resources/section_images/testing_deploying/targetinstall_results.png" />
+                    <img src="../resources/section_images/testing_deploying/targetinstall_results.png" />
                     <p><i>This is a composite image where the only change is the wallpaper. You should still see the rest of the changes.</i></p>
                     <div>
                         <span><i class="mdl2 mdl2-help" aria-hidden="true"></i><a class="learn_more_in_help" href="#">You can learn more about unattended answer file creation and image testing in the Help documentation</a></span>
