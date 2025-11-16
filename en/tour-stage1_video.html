@@ -65,8 +65,12 @@
 
                                     Anyway, I'm sorry, but I'm not letting you watch kids' toys videos on a high-quality webpage that is the
                                     DISMTools Tour.
+
+                                    **0.7.2 Update**: we should now continue automatically and let the user watch the 3 videos continuously. Since
+                                    we now have to turn off servers after finishing, it's best to just do this and we don't have to worry about any
+                                    instruction or kids videos.
                                 */
-                                alert(`To continue with the tour, click the Stage ${nextStage} button on the top right corner of your screen.`);
+                                window.location.href = `./tour-stage${nextStage}_video.html`;
                             }
                         }
                     }

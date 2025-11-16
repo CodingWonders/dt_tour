@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>DISMTools Tour</title>
+        <link rel="stylesheet" href="../styles/styles-common.css" media="(prefers-color-scheme: light)">
+        <link rel="stylesheet" href="../styles/styles-common_dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../mdl2/css/mdl2-icons.min.css">
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <script src="../scripts/diagnostics.js"></script>
+    </head>
+    <body style="margin: 0; overflow: hidden;">
+        <div id="main_tour_body_stages">
+            <header>
+                <picture>
+                    <source srcset="../resources/logo_dark.png" media="(prefers-color-scheme: dark)">
+                    <source srcset="../resources/logo.png" media="(prefers-color-scheme: light)">
+                    <img id="logo_image" title="Go to the main page" src="../resources/logo.png" alt="Logo" draggable="false" oncontextmenu="return false;" onclick="window.location.href = 'tour.html';" onmouseover="this.style.cursor = 'pointer';">
+                </picture>
+                <div id="navigation_buttons">
+                    <a href="tour-stage1_video.html"><img src="./resources/section_button_images/getting_started_normal.png" alt="Getting Started" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/getting_started_hovered.png';" onmouseout="this.src='./resources/section_button_images/getting_started_normal.png';"></a>
+                    <a href="tour-stage2_video.html"><img src="./resources/section_button_images/managing_servicing_normal.png" alt="Managing and servicing Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/managing_servicing_hovered.png';" onmouseout="this.src='./resources/section_button_images/managing_servicing_normal.png';"></a>
+                    <a href="tour-stage3_video.html"><img src="./resources/section_button_images/testing_deploying_normal.png" alt="Testing and deploying Windows images" draggable="false" oncontextmenu="return false;" onmouseover="this.src='./resources/section_button_images/testing_deploying_hovered.png';" onmouseout="this.src='./resources/section_button_images/testing_deploying_normal.png';"></a>
+                </div>
+            </header>
+            <main>
+                <div class="stage_contents">
+                    <h2>You have finished the Tour.</h2>
+                    <p>You have finished this tour. Now, you can do the following:</p>
+                    <ul>
+                        <li>If you wish to stay in this Tour a little bit longer, you can retrace your steps by rewatching one or more of the Tour videos (click one of the pictures on the top-right corner of your screen)</li>
+                        <li>
+                            If you want to perform image tasks by yourself from now on, close this tab. Then, perform the following steps (<strong>versions 0.7.2 Preview 2 and later; 0.7.1 Update 1 and later</strong>, <i>builds <code>25112</code> and later</i>):
+                            <ol>
+                                <li>Go back to DISMTools and then click the "Tour Actions" menu item</li>
+                                <li>Click "Stop Tour Server"</li>
+                            </ol>
+                            <br>
+                            <img src="../resources/section_images/finish/stop_tour_server.png" />
+                            <br>
+                            Alternatively, you can close the program to automatically shut down the tour server. A server had been started in the background to make watching the tour videos possible.
+                        </li>
+                    </ul>
+                    <p>You can load the Tour at any time by going to Help &gt; DISMTools Tour.</p>
+                </div>
+            </main>
+            <footer>
+                <a href="#" id="reportFeedback" onclick="gatherDiagnostics()">Report an issue</a>                
+            </footer>
+        </div>
+        <div id="makewindowbigger_goddamnit">
+            Please make the window bigger to view the tour.
+        </div>
+        <script>
+            document.getElementById("navigation_buttons").classList.add("show");
+        </script>
+    </body>
+</html>
